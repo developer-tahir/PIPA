@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="profile-container">
+                <!-- Header -->
+                <header class="profile-header">
+                    <div class="header-content">
+                        <h2>My Profile</h2>
+                        <p class="subtitle">Manage your personal information and account settings</p>
+                    </div>
+                    <div class="header-actions action-buttons">
+                        <button class="btn btn-primary" id="editProfileBtn">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Profile Card -->
+                <section class="profile-info" aria-labelledby="profile-info-title">
+                    <div class="profile-card">
+                        <div class="profile-photo">
+                            <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.style.display='none'; this.parentElement.innerHTML='TM';">
+                            <button class="photo-upload-btn" aria-label="Change profile photo">
+                                <i class="fas fa-camera" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="profile-content">
+                            <h3 id="profile-info-title">Personal Information</h3>
+                            <div class="profile-details">
+                                <div class="detail-row">
+                                    <div class="detail-label">Full Name</div>
+                                    <div class="detail-value">Tahir M</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label">Email</div>
+                                    <div class="detail-value">tahir@example.com</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label">Phone</div>
+                                    <div class="detail-value">+61 412 345 678</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label">Position</div>
+                                    <div class="detail-value">Farm Manager</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label">Location</div>
+                                    <div class="detail-value">Central Farm, QLD</div>
+                                </div>
+                                <div class="detail-row">
+                                    <div class="detail-label">Member Since</div>
+                                    <div class="detail-value">March 2023</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Edit Profile Form - Hidden by default -->
+                <section class="edit-profile-form" id="editProfileForm" aria-labelledby="edit-profile-title" style="display: none;">
+                    <div class="form-card">
+                        <h3 id="edit-profile-title">Edit Profile Information</h3>
+                        <form id="profileForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" value="John" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" value="Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" value="john.doe@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" value="+61 412 345 678">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" name="location" value="Central Farm, QLD">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" name="bio" rows="4">Experienced farm manager with over 10 years in agricultural operations and team management.</textarea>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section class="security-section" aria-labelledby="security-section-title">
+                    <div class="section-card">
+                        <h3 id="security-section-title">Security Settings</h3>
+                        <div class="security-options">
+                            <div class="option-card">
+                                <div class="option-icon">
+                                    <i class="fas fa-key" aria-hidden="true"></i>
+                                </div>
+                                <div class="option-content">
+                                    <h4>Password</h4>
+                                    <p>Change your password to keep your account secure</p>
+                                </div>
+                                <div class="option-action">
+                                    <a href="change-password.html" class="btn btn-secondary">Change Password</a>
+                                </div>
+                            </div>
+                            <div class="option-card">
+                                <div class="option-icon">
+                                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                                </div>
+                                <div class="option-content">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <div class="option-action">
+                                    <button class="btn btn-secondary">Set Up</button>
+                                </div>
+                            </div>
+                            <div class="option-card">
+                                <div class="option-icon">
+                                    <i class="fas fa-bell" aria-hidden="true"></i>
+                                </div>
+                                <div class="option-content">
+                                    <h4>Notification Preferences</h4>
+                                    <p>Manage how you receive alerts and notifications</p>
+                                </div>
+                                <div class="option-action">
+                                    <button class="btn btn-secondary">Manage</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/profile.js"></script>
+    <script src="assets/js/avatars.js"></script>
+    
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+</body>
+</html> 

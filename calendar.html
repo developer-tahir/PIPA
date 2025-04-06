@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/calendar.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li class="active"><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="calendar-container">
+                <!-- Header with Actions -->
+                <header class="calendar-header">
+                    <div class="header-content">
+                        <h2>Calendar</h2>
+                        <div class="calendar-nav">
+                            <button class="btn btn-icon" aria-label="Previous month">
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                            </button>
+                            <h3>April 2025</h3>
+                            <button class="btn btn-icon" aria-label="Next month">
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="header-actions action-buttons">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                            Add Event
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-filter" aria-hidden="true"></i>
+                            Filter
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Calendar View -->
+                <section class="calendar-view" aria-label="Calendar grid">
+                    <!-- Calendar Header -->
+                    <div class="calendar-grid-header">
+                        <div>Sunday</div>
+                        <div>Monday</div>
+                        <div>Tuesday</div>
+                        <div>Wednesday</div>
+                        <div>Thursday</div>
+                        <div>Friday</div>
+                        <div>Saturday</div>
+                    </div>
+
+                    <!-- Calendar Grid -->
+                    <div class="calendar-grid">
+                        <!-- Previous Month -->
+                        <div class="calendar-day prev-month">
+                            <span class="date">31</span>
+                        </div>
+                        <!-- Current Month -->
+                        <div class="calendar-day">
+                            <span class="date">1</span>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">2</span>
+                            <div class="event task">
+                                <i class="fas fa-tasks" aria-hidden="true"></i>
+                                <span>Field Inspection</span>
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">3</span>
+                        </div>
+                        <div class="calendar-day today">
+                            <span class="date">4</span>
+                            <div class="event safety">
+                                <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                                <span>Safety Check</span>
+                            </div>
+                            <div class="event task">
+                                <i class="fas fa-tasks" aria-hidden="true"></i>
+                                <span>Clear Rocks</span>
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">5</span>
+                            <div class="event maintenance">
+                                <i class="fas fa-wrench" aria-hidden="true"></i>
+                                <span>Tractor Service</span>
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">6</span>
+                        </div>
+                        <!-- Additional days... -->
+                        <div class="calendar-day">
+                            <span class="date">7</span>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">8</span>
+                            <div class="event weather">
+                                <i class="fas fa-cloud-rain" aria-hidden="true"></i>
+                                <span>Rain Expected</span>
+                            </div>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">9</span>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="date">10</span>
+                            <div class="event task">
+                                <i class="fas fa-tasks" aria-hidden="true"></i>
+                                <span>Fence Repair</span>
+                            </div>
+                        </div>
+                        <!-- Continue with remaining days... -->
+                    </div>
+                </section>
+
+                <!-- Upcoming Events -->
+                <section class="upcoming-events" aria-labelledby="upcoming-events-title">
+                    <h3 id="upcoming-events-title">Upcoming Events</h3>
+                    <div class="event-list">
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">4</span>
+                                <span class="month">Apr</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Safety Check</h4>
+                                <p>Monthly equipment safety inspection</p>
+                                <div class="event-meta">
+                                    <span class="time">
+                                        <i class="fas fa-clock" aria-hidden="true"></i>
+                                        9:00 AM
+                                    </span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        Workshop
+                                    </span>
+                                </div>
+                            </div>
+                            <button class="btn btn-icon" aria-label="Event options">
+                                <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">5</span>
+                                <span class="month">Apr</span>
+                            </div>
+                            <div class="event-details">
+                                <h4>Tractor Service</h4>
+                                <p>Regular maintenance and oil change</p>
+                                <div class="event-meta">
+                                    <span class="time">
+                                        <i class="fas fa-clock" aria-hidden="true"></i>
+                                        10:30 AM
+                                    </span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        Workshop
+                                    </span>
+                                </div>
+                            </div>
+                            <button class="btn btn-icon" aria-label="Event options">
+                                <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" aria-label="Add event">
+        <i class="fas fa-plus" aria-hidden="true"></i>
+    </button>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/calendar.js"></script>
+    <script src="assets/js/avatars.js"></script>
+</body>
+</html> 

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PIPA Farm</title>
+    
+    <!-- Loading fix script - run before anything else -->
+    <script src="assets/js/loading-fix.js"></script>
+    
+    <!-- Immediate fix for loading screen -->
+    <script>
+        // Set a timeout to hide the loading screen
+        window.setTimeout(function() {
+            var loaders = document.getElementsByClassName('loading');
+            for (var i = 0; i < loaders.length; i++) {
+                loaders[i].style.opacity = '0';
+                loaders[i].style.display = 'none';
+            }
+        }, 800); // Give enough time for initial render
+    </script>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    
+    <!-- Meta tags for better SEO and accessibility -->
+    <meta name="description" content="PIPA Farm management dashboard for Australian farms - manage tasks, employees, and farm operations efficiently.">
+    <meta name="keywords" content="farm management, australian farms, agriculture, farm dashboard">
+    <meta name="author" content="PIPA Farm Solutions">
+    
+    <!-- iOS specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PIPA Farm">
+    
+    <!-- Android specific meta tags -->
+    <meta name="theme-color" content="#FF007F">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+    <!-- Loading indicator for slow connections -->
+    <div class="loading" id="page-loader" role="status" aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="loading-text">Loading PIPA Farm...</p>
+        <button onclick="document.getElementById('page-loader').style.display='none';" class="btn btn-sm" style="margin-top: 20px; display: none;" id="manual-hide-loader">
+            Click here if loading persists
+        </button>
+        <script>
+            // Show the manual hide button after 3 seconds
+            setTimeout(function() {
+                document.getElementById('manual-hide-loader').style.display = 'block';
+            }, 3000);
+        </script>
+    </div>
+
+    <!-- Offline and connectivity indicators -->
+    <div class="offline-indicator">
+        <i class="fas fa-wifi"></i> You are currently offline
+    </div>
+    <div class="limited-connectivity">
+        <i class="fas fa-exclamation-triangle"></i> Limited connection
+    </div>
+    <div class="sync-indicator">
+        <i class="fas fa-sync"></i> Syncing data
+    </div>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="dashboard-container">
+                <!-- Header with Welcome Message -->
+                <header class="dashboard-header">
+                    <div class="welcome-section">
+                        <h2>G'day, Tahir M</h2>
+                        <p class="date-time">Thursday, 4 April 2025 | 8:45 AM AEST</p>
+                    </div>
+                    <div class="quick-actions action-buttons">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                            New Task
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-file-alt" aria-hidden="true"></i>
+                            Daily Report
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Weather Alert -->
+                <div class="weather-alert warning">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <div class="alert-content">
+                        <h3>Weather Warning</h3>
+                        <p>High temperatures expected today (35°C). Consider adjusting outdoor work schedules.</p>
+                    </div>
+                    <button class="btn btn-icon" aria-label="Close alert">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Farm Overview -->
+                <section class="farm-overview" aria-labelledby="farm-overview-title">
+                    <h3 id="farm-overview-title">Farm Overview</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Active Workers</h4>
+                                <p class="stat-number">12</p>
+                                <p class="stat-trend positive">
+                                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                    2 more than yesterday
+                                </p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Safety Reports</h4>
+                                <p class="stat-number">3</p>
+                                <p class="stat-trend negative">
+                                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                    2 new reports
+                                </p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Open Tasks</h4>
+                                <p class="stat-number">8</p>
+                                <p class="stat-trend neutral">
+                                    <i class="fas fa-minus" aria-hidden="true"></i>
+                                    Same as yesterday
+                                </p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Hours Today</h4>
+                                <p class="stat-number">45.5</p>
+                                <p class="stat-trend positive">
+                                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                    5.5 more than average
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Priority Tasks -->
+                <section class="priority-tasks" aria-labelledby="priority-tasks-title">
+                    <div class="section-header">
+                        <h3 id="priority-tasks-title">Priority Tasks</h3>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                            Add Task
+                        </button>
+                    </div>
+                    <div class="task-cards">
+                        <div class="task-card high-priority">
+                            <div class="task-header">
+                                <span class="priority-badge">High Priority</span>
+                                <span class="due-date">Due Today</span>
+                            </div>
+                            <h4>Clear rocks from Long Paddock</h4>
+                            <p>Remove rocks before seeding can begin</p>
+                            <div class="task-footer">
+                                <div class="assigned-to">
+                                    <div class="avatar">
+                                        <img src="assets/images/avatar1.jpg" alt="Sam Pritchard" class="profile-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='SP';">
+                                    </div>
+                                    <span>Sam Pritchard</span>
+                                </div>
+                                <button class="btn btn-icon btn-secondary" aria-label="View task details">
+                                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="task-card medium-priority">
+                            <div class="task-header">
+                                <span class="priority-badge">Medium Priority</span>
+                                <span class="due-date">Due Tomorrow</span>
+                            </div>
+                            <h4>Repair fence in North Paddock</h4>
+                            <p>Fix damaged sections of fencing</p>
+                            <div class="task-footer">
+                                <div class="assigned-to">
+                                    <div class="avatar">
+                                        <img src="assets/images/avatar2.jpg" alt="John Smith" class="profile-image" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='JS';">
+                                    </div>
+                                    <span>John Smith</span>
+                                </div>
+                                <button class="btn btn-icon btn-secondary" aria-label="View task details">
+                                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Weather Forecast -->
+                <section class="weather-forecast" aria-labelledby="weather-forecast-title">
+                    <h3 id="weather-forecast-title">5-Day Weather Forecast</h3>
+                    <div class="forecast-cards">
+                        <div class="forecast-card">
+                            <h4>Today</h4>
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <p class="temp">35°C</p>
+                            <p class="condition">Sunny</p>
+                        </div>
+                        <div class="forecast-card">
+                            <h4>Friday</h4>
+                            <i class="fas fa-cloud-sun" aria-hidden="true"></i>
+                            <p class="temp">32°C</p>
+                            <p class="condition">Partly Cloudy</p>
+                        </div>
+                        <div class="forecast-card">
+                            <h4>Saturday</h4>
+                            <i class="fas fa-cloud" aria-hidden="true"></i>
+                            <p class="temp">28°C</p>
+                            <p class="condition">Cloudy</p>
+                        </div>
+                        <div class="forecast-card">
+                            <h4>Sunday</h4>
+                            <i class="fas fa-cloud-rain" aria-hidden="true"></i>
+                            <p class="temp">25°C</p>
+                            <p class="condition">Light Rain</p>
+                        </div>
+                        <div class="forecast-card">
+                            <h4>Monday</h4>
+                            <i class="fas fa-sun" aria-hidden="true"></i>
+                            <p class="temp">27°C</p>
+                            <p class="condition">Sunny</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Add floating action button for quick access to common actions -->
+    <button class="fab" aria-label="Add new item" data-tooltip="Quick actions">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Update date and time for Australian timezone
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Australia/Sydney'
+            };
+            const formatter = new Intl.DateTimeFormat('en-AU', options);
+            const dateTimeStr = formatter.format(now);
+            document.querySelector('.date-time').textContent = dateTimeStr + ' AEST';
+        }
+        
+        // Call once on load and set interval
+        updateDateTime();
+        setInterval(updateDateTime, 60000); // Update every minute
+    </script>
+    
+    <!-- Fix for loading screen -->
+    <script>
+        // Force hide loading screen immediately
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const loader = document.querySelector('.loading');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    loader.style.display = 'none';
+                    console.log("Loading screen forcibly hidden");
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

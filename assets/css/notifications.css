@@ -1,0 +1,512 @@
+/* Notifications for PIPA Farm - Optimized for Australian farms with intermittent connectivity */
+
+/* Notification Container */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 350px;
+    width: 100%;
+    z-index: var(--z-popover);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.notification-container > * {
+    pointer-events: auto;
+}
+
+/* Standard Notification */
+.notification {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md);
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    border-left: 4px solid;
+}
+
+.notification.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.closing {
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+/* Notification Types */
+.notification.success {
+    border-left-color: var(--success-color);
+}
+
+.notification.error {
+    border-left-color: var(--danger-color);
+}
+
+.notification.warning {
+    border-left-color: var(--warning-color);
+}
+
+.notification.info {
+    border-left-color: var(--info-color);
+}
+
+/* Notification Icon */
+.notification-icon {
+    margin-right: var(--spacing-md);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.notification.success .notification-icon {
+    color: var(--success-color);
+}
+
+.notification.error .notification-icon {
+    color: var(--danger-color);
+}
+
+.notification.warning .notification-icon {
+    color: var(--warning-color);
+}
+
+.notification.info .notification-icon {
+    color: var(--info-color);
+}
+
+/* Notification Content */
+.notification-content {
+    flex-grow: 1;
+    padding-right: var(--spacing-md);
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    color: var(--text-color);
+}
+
+/* Close Button */
+.notification-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    color: var(--text-color);
+}
+
+/* Offline Indicator - Critical for Rural Australian Farms */
+.offline-indicator {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--danger-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-pill);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-fixed);
+    display: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 0;
+    font-size: var(--font-size-sm);
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+body.offline .offline-indicator {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.offline-indicator i {
+    font-size: 1.25rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Limited Connectivity Indicator */
+.limited-connectivity {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-pill);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-fixed);
+    display: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 0;
+    font-size: var(--font-size-sm);
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+body.limited-connection .limited-connectivity {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Active Sync Indicator */
+.sync-indicator {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--info-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-pill);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-fixed);
+    display: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 0;
+    font-size: var(--font-size-sm);
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+body.syncing .sync-indicator {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.sync-indicator i {
+    animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Toast Notifications - Simplified for Farms */
+.toast {
+    position: fixed;
+    bottom: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-pill);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: var(--z-fixed);
+    text-align: center;
+    max-width: 80%;
+}
+
+.toast.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Alert Box - For Critical Farm Information */
+.alert-box {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.alert-box.alert-success {
+    background-color: rgba(var(--success-color-rgb), 0.15);
+    border-left: 4px solid var(--success-color);
+}
+
+.alert-box.alert-danger {
+    background-color: rgba(var(--danger-color-rgb), 0.15);
+    border-left: 4px solid var(--danger-color);
+}
+
+.alert-box.alert-warning {
+    background-color: rgba(var(--warning-color-rgb), 0.15);
+    border-left: 4px solid var(--warning-color);
+}
+
+.alert-box.alert-info {
+    background-color: rgba(var(--info-color-rgb), 0.15);
+    border-left: 4px solid var(--info-color);
+}
+
+.alert-box i {
+    font-size: 1.25rem;
+}
+
+.alert-box.alert-success i {
+    color: var(--success-color);
+}
+
+.alert-box.alert-danger i {
+    color: var(--danger-color);
+}
+
+.alert-box.alert-warning i {
+    color: var(--warning-color);
+}
+
+.alert-box.alert-info i {
+    color: var(--info-color);
+}
+
+.alert-content {
+    flex-grow: 1;
+}
+
+.alert-title {
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 5px 0;
+}
+
+.alert-message {
+    margin: 0;
+}
+
+.alert-close {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+}
+
+/* Weather Alert - Specific for Australian Farm Conditions */
+.weather-alert {
+    background-color: rgba(var(--warning-color-rgb), 0.15);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.weather-alert.warning {
+    border-left: 4px solid var(--warning-color);
+}
+
+.weather-alert.danger {
+    background-color: rgba(var(--danger-color-rgb), 0.15);
+    border-left: 4px solid var(--danger-color);
+}
+
+.weather-alert i {
+    font-size: 1.5rem;
+    color: var(--warning-color);
+}
+
+.weather-alert.danger i {
+    color: var(--danger-color);
+}
+
+.weather-alert .alert-content {
+    flex-grow: 1;
+}
+
+.weather-alert h3 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-md);
+}
+
+.weather-alert p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .notification-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        width: auto;
+    }
+    
+    .weather-alert {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: var(--spacing-sm);
+    }
+    
+    .offline-indicator,
+    .limited-connectivity,
+    .sync-indicator {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        justify-content: center;
+    }
+    
+    .toast {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+    .notification,
+    .alert-box,
+    .weather-alert {
+        border: 2px solid #000;
+    }
+    
+    .notification-close,
+    .alert-close {
+        border: 1px solid currentColor;
+        padding: 2px;
+    }
+    
+    .offline-indicator,
+    .limited-connectivity,
+    .sync-indicator,
+    .toast {
+        background-color: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .notification,
+    .offline-indicator,
+    .limited-connectivity,
+    .sync-indicator,
+    .toast {
+        transition: none;
+    }
+    
+    .offline-indicator i,
+    .sync-indicator i {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .notification {
+        background-color: #333;
+    }
+    
+    .notification-content p {
+        color: #fff;
+    }
+    
+    .notification-close {
+        color: #aaa;
+    }
+    
+    .notification-close:hover {
+        color: #fff;
+    }
+    
+    .alert-box, .weather-alert {
+        background-color: #333;
+        color: #fff;
+    }
+}
+
+/* Logout success notification */
+.logout-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--success-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    max-width: 320px;
+    z-index: var(--z-tooltip);
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInDown 0.3s forwards, fadeOut 0.3s forwards 3s;
+}
+
+.logout-notification i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.logout-notification p {
+    margin: 0;
+}
+
+/* Animation for notifications */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+} 

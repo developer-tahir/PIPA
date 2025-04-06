@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/training.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li class="active"><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="training-container">
+                <div class="training-header">
+                    <div class="header-content">
+                        <h1>Training & Certification</h1>
+                        <p class="subtitle">Complete required training modules and earn certifications</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-certificate"></i> My Certifications
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-play-circle"></i> Resume Learning
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label">Courses In Progress</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label">Certifications Earned</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value">8.5h</span>
+                            <span class="stat-label">Learning Time</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label">Days Until Next Due</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-categories">
+                    <div class="section-header">
+                        <h2>Training Categories</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    
+                    <div class="category-cards">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <h3>Equipment Operation</h3>
+                            <p>Learn to safely operate farm machinery and equipment</p>
+                            <div class="category-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%"></div>
+                                </div>
+                                <span class="progress-text">65% Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h3>Workplace Safety</h3>
+                            <p>Essential safety protocols for farm environments</p>
+                            <div class="category-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 92%"></div>
+                                </div>
+                                <span class="progress-text">92% Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>Crop Management</h3>
+                            <p>Best practices for sustainable crop production</p>
+                            <div class="category-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%"></div>
+                                </div>
+                                <span class="progress-text">30% Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-first-aid"></i>
+                            </div>
+                            <h3>First Aid</h3>
+                            <p>Emergency response and first aid techniques</p>
+                            <div class="category-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 45%"></div>
+                                </div>
+                                <span class="progress-text">45% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-courses">
+                    <div class="section-header">
+                        <h2>Featured Courses</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    
+                    <div class="course-cards">
+                        <div class="course-card">
+                            <div class="course-thumbnail">
+                                <img src="https://img.youtube.com/vi/fF0sgYt_uFU/maxresdefault.jpg" alt="Equipment Safety Training">
+                                <span class="course-duration"><i class="fas fa-clock"></i> 2h 15m</span>
+                            </div>
+                            <div class="course-info">
+                                <div class="course-category">Equipment Operation</div>
+                                <h3 class="course-title">Farm Equipment Safety Fundamentals</h3>
+                                <p class="course-description">Learn essential safety procedures for operating tractors and heavy machinery on the farm.</p>
+                                <div class="course-meta">
+                                    <span class="course-modules"><i class="fas fa-layer-group"></i> 5 Modules</span>
+                                    <span class="course-status in-progress">In Progress</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 65%"></div>
+                                    </div>
+                                    <span class="progress-text">65%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-thumbnail">
+                                <img src="https://img.youtube.com/vi/rSPdiK1g7HA/maxresdefault.jpg" alt="Chemical Safety Training">
+                                <span class="course-duration"><i class="fas fa-clock"></i> 1h 40m</span>
+                            </div>
+                            <div class="course-info">
+                                <div class="course-category">Workplace Safety</div>
+                                <h3 class="course-title">Chemical Handling and Safety</h3>
+                                <p class="course-description">Safe handling of agricultural chemicals, pesticides, and fertilizers.</p>
+                                <div class="course-meta">
+                                    <span class="course-modules"><i class="fas fa-layer-group"></i> 4 Modules</span>
+                                    <span class="course-status not-started">Not Started</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 0%"></div>
+                                    </div>
+                                    <span class="progress-text">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-card">
+                            <div class="course-thumbnail">
+                                <img src="https://img.youtube.com/vi/rb8PKMao13M/maxresdefault.jpg" alt="Emergency Response Training">
+                                <span class="course-duration"><i class="fas fa-clock"></i> 1h 20m</span>
+                            </div>
+                            <div class="course-info">
+                                <div class="course-category">First Aid</div>
+                                <h3 class="course-title">Emergency Response Protocols</h3>
+                                <p class="course-description">Learn proper response procedures for common farm emergencies.</p>
+                                <div class="course-meta">
+                                    <span class="course-modules"><i class="fas fa-layer-group"></i> 3 Modules</span>
+                                    <span class="course-status">Due soon</span>
+                                </div>
+                                <div class="course-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 45%"></div>
+                                    </div>
+                                    <span class="progress-text">45%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="my-certifications">
+                    <div class="section-header">
+                        <h2>My Certifications</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    
+                    <div class="certification-cards">
+                        <div class="certification-card">
+                            <div class="certification-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h3>Tractor Operation Certification</h3>
+                                <p class="certification-date">Issued: May 15, 2023</p>
+                                <p class="certification-expiry">Expires: May 15, 2025</p>
+                            </div>
+                            <div class="certification-status valid">
+                                <i class="fas fa-check-circle"></i> Valid
+                            </div>
+                            <button class="btn btn-outline-secondary cert-btn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                        
+                        <div class="certification-card">
+                            <div class="certification-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h3>First Aid Level 1</h3>
+                                <p class="certification-date">Issued: January 10, 2023</p>
+                                <p class="certification-expiry">Expires: January 10, 2024</p>
+                            </div>
+                            <div class="certification-status expiring-soon">
+                                <i class="fas fa-exclamation-circle"></i> Expiring Soon
+                            </div>
+                            <button class="btn btn-outline-secondary cert-btn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                        
+                        <div class="certification-card upcoming">
+                            <div class="certification-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="certification-info">
+                                <h3>Chemical Handling Certification</h3>
+                                <p class="certification-progress">Progress: 0/4 modules completed</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="certification-status pending">
+                                <i class="fas fa-hourglass-half"></i> Pending
+                            </div>
+                            <button class="btn btn-primary cert-btn">
+                                <i class="fas fa-play-circle"></i> Start
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-review-section">
+                    <div class="section-header">
+                        <h3>Course Content Review</h3>
+                        <div class="course-navigation">
+                            <button class="btn btn-outline-secondary">
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+                            <span class="course-progress-text">Module 2 of 5</span>
+                            <button class="btn btn-outline-secondary">
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <div class="video-player">
+                            <video controls poster="https://img.youtube.com/vi/6UmUV7vM-eo/maxresdefault.jpg">
+                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm" type="video/webm">
+                                <track label="English" kind="subtitles" srclang="en" src="assets/videos/captions-en.vtt" default>
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-controls">
+                                <button class="btn btn-primary video-control-btn">
+                                    <i class="fas fa-closed-captioning"></i> Captions
+                                </button>
+                                <button class="btn btn-primary video-control-btn">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                                <button class="btn btn-primary video-control-btn">
+                                    <i class="fas fa-sticky-note"></i> Notes
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Farm Equipment Safety Procedures</h3>
+                            <p class="video-meta">
+                                <span><i class="fas fa-clock"></i> 15:24 minutes</span>
+                                <span><i class="fas fa-eye"></i> Last viewed: 2 days ago</span>
+                            </p>
+                            <div class="video-description">
+                                <p>This video covers essential safety procedures for operating tractors and heavy machinery on the farm. Learn proper startup checks, operational safety, and emergency procedures.</p>
+                                <div class="video-tags">
+                                    <span class="tag">Equipment</span>
+                                    <span class="tag">Safety</span>
+                                    <span class="tag">Required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module-content">
+                        <h3>Module Contents</h3>
+                        <div class="module-list">
+                            <div class="module-item completed">
+                                <div class="module-item-header">
+                                    <span class="module-item-type">
+                                        <i class="fas fa-video"></i> Video
+                                    </span>
+                                    <span class="module-item-title">Introduction to Farm Equipment</span>
+                                    <span class="module-item-duration">8:15</span>
+                                    <span class="module-item-status">
+                                        <i class="fas fa-check-circle"></i> Completed
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="module-item active" data-video-url="https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" data-poster="https://img.youtube.com/vi/6UmUV7vM-eo/maxresdefault.jpg">
+                                <div class="module-item-header">
+                                    <span class="module-item-type">
+                                        <i class="fas fa-video"></i> Video
+                                    </span>
+                                    <span class="module-item-title">Farm Equipment Safety Procedures</span>
+                                    <span class="module-item-duration">15:24</span>
+                                    <span class="module-item-status">
+                                        <i class="fas fa-play-circle"></i> In Progress
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="module-item" data-video-url="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" data-poster="https://img.youtube.com/vi/fF0sgYt_uFU/maxresdefault.jpg">
+                                <div class="module-item-header">
+                                    <span class="module-item-type">
+                                        <i class="fas fa-file-alt"></i> Reading
+                                    </span>
+                                    <span class="module-item-title">Safety Manual Highlights</span>
+                                    <span class="module-item-duration">10 min</span>
+                                    <span class="module-item-status">
+                                        <i class="fas fa-circle"></i> Not Started
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="module-item locked">
+                                <div class="module-item-header">
+                                    <span class="module-item-type">
+                                        <i class="fas fa-question-circle"></i> Quiz
+                                    </span>
+                                    <span class="module-item-title">Module 2 Assessment</span>
+                                    <span class="module-item-duration">10 questions</span>
+                                    <span class="module-item-status">
+                                        <i class="fas fa-lock"></i> Locked
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-section">
+                    <div class="section-header">
+                        <h3>Knowledge Check</h3>
+                        <p class="quiz-description">Complete this quiz to test your understanding of the safety procedures covered in this module.</p>
+                    </div>
+                    
+                    <div class="quiz-container">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 40%"></div>
+                            </div>
+                            <span class="progress-text">Question 2 of 5</span>
+                        </div>
+                        
+                        <div class="quiz-question">
+                            <h4>What is the first step you should take before operating a tractor?</h4>
+                            
+                            <form class="quiz-options">
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" id="q2-option1">
+                                    <label for="q2-option1">Start the engine and warm it up</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" id="q2-option2">
+                                    <label for="q2-option2">Conduct a visual inspection of the tractor</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" id="q2-option3">
+                                    <label for="q2-option3">Check the fuel level</label>
+                                </div>
+                                <div class="quiz-option">
+                                    <input type="radio" name="q2" id="q2-option4">
+                                    <label for="q2-option4">Adjust the seat position</label>
+                                </div>
+                            </form>
+                            
+                            <div class="quiz-hint">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>Hint: Think about safety checks that should be performed before any equipment operation.</p>
+                            </div>
+                            
+                            <div class="quiz-nav">
+                                <button class="btn btn-secondary">Previous</button>
+                                <button class="btn btn-primary">Next Question</button>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-random-pool">
+                            <h4>Random Question Pool</h4>
+                            <p>This quiz pulls random questions from a pool of 20 questions to ensure comprehensive knowledge testing each time you take it.</p>
+                            <div class="question-categories">
+                                <div class="question-category">
+                                    <span class="category-icon"><i class="fas fa-hard-hat"></i></span>
+                                    <span class="category-name">Safety Procedures</span>
+                                    <span class="category-count">8 questions</span>
+                                </div>
+                                <div class="question-category">
+                                    <span class="category-icon"><i class="fas fa-tools"></i></span>
+                                    <span class="category-name">Equipment Operation</span>
+                                    <span class="category-count">6 questions</span>
+                                </div>
+                                <div class="question-category">
+                                    <span class="category-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                                    <span class="category-name">Emergency Response</span>
+                                    <span class="category-count">6 questions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-results">
+                        <h3>Quiz Results: Module 2 Assessment</h3>
+                        <div class="results-summary">
+                            <div class="result-stat">
+                                <span class="result-value">80%</span>
+                                <span class="result-label">Score</span>
+                            </div>
+                            <div class="result-stat">
+                                <span class="result-value">4/5</span>
+                                <span class="result-label">Correct Answers</span>
+                            </div>
+                            <div class="result-stat">
+                                <span class="result-value">Passed</span>
+                                <span class="result-label">Status</span>
+                            </div>
+                        </div>
+                        
+                        <div class="results-actions">
+                            <button class="btn btn-outline-secondary">
+                                <i class="fas fa-sync-alt"></i> Retake Quiz
+                            </button>
+                            <button class="btn btn-outline-secondary">
+                                <i class="fas fa-eye"></i> Review Answers
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-check-circle"></i> Complete Module
+                            </button>
+                        </div>
+                        
+                        <div class="results-feedback">
+                            <h4>Feedback</h4>
+                            <p>Good work! You've demonstrated a strong understanding of farm equipment safety procedures. Review the emergency shutdown procedures before proceeding to the next module.</p>
+                            <div class="feedback-resources">
+                                <h5>Additional Resources:</h5>
+                                <ul>
+                                    <li><a href="#"><i class="fas fa-file-pdf"></i> Farm Equipment Safety Manual</a></li>
+                                    <li><a href="#"><i class="fas fa-video"></i> Emergency Procedures Demo</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="review-video-section">
+                                <h5>Review Video</h5>
+                                <p>Watch this short video explaining the key concepts you need to understand:</p>
+                                <div class="review-video-player">
+                                    <video controls poster="https://img.youtube.com/vi/h8ycmroFQCM/maxresdefault.jpg" width="100%">
+                                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+                                        <track label="English" kind="subtitles" srclang="en" src="assets/videos/captions-review-en.vtt" default>
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="review-video-caption">
+                                        <span class="caption-title">Emergency Shutdown Procedures</span>
+                                        <span class="caption-duration"><i class="fas fa-clock"></i> 2:45</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="completion-tracking">
+                    <div class="section-header">
+                        <h3>Training Completion Progress</h3>
+                    </div>
+                    
+                    <div class="completion-stats">
+                        <div class="completion-chart">
+                            <div class="progress-circle" data-progress="65">
+                                <div class="progress-circle-inner">
+                                    <span class="progress-percentage">65%</span>
+                                    <span class="progress-label">Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="completion-details">
+                            <div class="completion-item">
+                                <span class="completion-label">Videos Watched:</span>
+                                <span class="completion-value">8/12</span>
+                                <div class="mini-progress">
+                                    <div class="mini-progress-bar" style="width: 67%"></div>
+                                </div>
+                            </div>
+                            <div class="completion-item">
+                                <span class="completion-label">Quizzes Passed:</span>
+                                <span class="completion-value">2/5</span>
+                                <div class="mini-progress">
+                                    <div class="mini-progress-bar" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div class="completion-item">
+                                <span class="completion-label">Reading Materials:</span>
+                                <span class="completion-value">5/8</span>
+                                <div class="mini-progress">
+                                    <div class="mini-progress-bar" style="width: 63%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-progress">
+                        <h4>Equipment Safety Certification</h4>
+                        <p>Complete all modules and pass the final assessment to earn your certification.</p>
+                        <div class="progress-bar certification-progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <div class="certification-milestones">
+                            <div class="milestone completed">
+                                <div class="milestone-dot"></div>
+                                <span>Module 1</span>
+                            </div>
+                            <div class="milestone completed">
+                                <div class="milestone-dot"></div>
+                                <span>Module 2</span>
+                            </div>
+                            <div class="milestone in-progress">
+                                <div class="milestone-dot"></div>
+                                <span>Module 3</span>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-dot"></div>
+                                <span>Module 4</span>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-dot"></div>
+                                <span>Final</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+    
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/training.js"></script>
+    <script>
+        // Register service worker for offline support
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark the first module as active by default
+            const firstModule = document.querySelector('.module-item');
+            if (firstModule) {
+                firstModule.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html> 

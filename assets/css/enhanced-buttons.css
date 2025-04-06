@@ -1,0 +1,543 @@
+/* Enhanced Button Styles for PIPA Farm */
+
+/* Base button styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1.25rem;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    min-height: 2.75rem;
+    letter-spacing: var(--letter-spacing);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:focus-visible {
+    outline: 3px solid rgba(var(--primary-color-rgb), 0.4);
+    outline-offset: 2px;
+}
+
+/* Primary button */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+}
+
+.btn-primary:active {
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.4);
+}
+
+/* Secondary button */
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color-dark);
+    border-color: var(--secondary-color-dark);
+}
+
+.btn-secondary:active {
+    box-shadow: 0 0 0 0.2rem rgba(var(--secondary-color-rgb), 0.4);
+}
+
+/* Success button */
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-success:active {
+    box-shadow: 0 0 0 0.2rem rgba(var(--success-color-rgb), 0.4);
+}
+
+/* Warning button */
+.btn-warning {
+    background-color: var(--warning-color);
+    color: #212529;
+    border-color: var(--warning-color);
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    color: #212529;
+}
+
+.btn-warning:active {
+    box-shadow: 0 0 0 0.2rem rgba(var(--warning-color-rgb), 0.4);
+}
+
+/* Danger button */
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-danger:active {
+    box-shadow: 0 0 0 0.2rem rgba(var(--danger-color-rgb), 0.4);
+}
+
+/* Info button */
+.btn-info {
+    background-color: var(--info-color);
+    color: white;
+    border-color: var(--info-color);
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.btn-info:active {
+    box-shadow: 0 0 0 0.2rem rgba(var(--info-color-rgb), 0.4);
+}
+
+/* Outline button styles */
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-outline-success {
+    background-color: transparent;
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-outline-warning {
+    background-color: transparent;
+    color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--warning-color);
+    color: #212529;
+}
+
+.btn-outline-danger {
+    background-color: transparent;
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-outline-info {
+    background-color: transparent;
+    color: var(--info-color);
+    border-color: var(--info-color);
+}
+
+.btn-outline-info:hover {
+    background-color: var(--info-color);
+    color: white;
+}
+
+/* Button sizes */
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-lg);
+    border-radius: var(--border-radius-lg);
+    min-height: 3rem;
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-sm);
+    min-height: 2.25rem;
+}
+
+/* Icon button */
+.btn-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: var(--bg-light);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.btn-icon:hover {
+    background-color: var(--gray-200);
+    transform: translateY(-2px);
+}
+
+.btn-icon:active {
+    transform: translateY(0);
+}
+
+.btn-icon.btn-icon-primary {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
+}
+
+.btn-icon.btn-icon-primary:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.2);
+}
+
+.btn-icon.btn-icon-success {
+    background-color: rgba(var(--success-color-rgb), 0.1);
+    color: var(--success-color);
+}
+
+.btn-icon.btn-icon-success:hover {
+    background-color: rgba(var(--success-color-rgb), 0.2);
+}
+
+.btn-icon.btn-icon-danger {
+    background-color: rgba(var(--danger-color-rgb), 0.1);
+    color: var(--danger-color);
+}
+
+.btn-icon.btn-icon-danger:hover {
+    background-color: rgba(var(--danger-color-rgb), 0.2);
+}
+
+/* Button group */
+.btn-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-group .btn {
+    border-radius: 0;
+    margin-right: -1px;
+}
+
+.btn-group .btn:first-child {
+    border-top-left-radius: var(--border-radius-md);
+    border-bottom-left-radius: var(--border-radius-md);
+}
+
+.btn-group .btn:last-child {
+    border-top-right-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+    margin-right: 0;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Floating action button */
+.fab {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--aussie-blue, #0066B2));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+}
+
+.fab:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fab:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Accessibility enhancements */
+.btn[data-tooltip] {
+    position: relative;
+}
+
+.btn[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.btn[data-tooltip]:hover::after,
+.btn[data-tooltip]:focus::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Loading state */
+.btn.btn-loading {
+    pointer-events: none;
+    position: relative;
+    color: transparent;
+}
+
+.btn.btn-loading::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.75rem);
+    left: calc(50% - 0.75rem);
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: btn-spinner 1s linear infinite;
+}
+
+@keyframes btn-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dyslexia-friendly focus indicators */
+.dyslexia-mode .btn:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.75rem 1.25rem;
+        min-height: 3rem;
+    }
+    
+    .btn-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .fab {
+        width: 4rem;
+        height: 4rem;
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+    
+    .action-buttons {
+        gap: 0.5rem;
+    }
+    
+    .action-buttons .btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* Touch optimization for farm work */
+@media (pointer: coarse) {
+    .btn, .btn-lg {
+        min-height: 3.25rem;
+    }
+    
+    .btn-sm {
+        min-height: 2.75rem;
+    }
+    
+    .btn-icon {
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    .btn {
+        border-width: 2px;
+    }
+    
+    .btn-primary, 
+    .btn-secondary, 
+    .btn-success, 
+    .btn-danger, 
+    .btn-info {
+        border-color: #000;
+    }
+    
+    .btn-outline-primary, 
+    .btn-outline-secondary, 
+    .btn-outline-success, 
+    .btn-outline-danger, 
+    .btn-outline-info {
+        border-color: currentColor;
+        border-width: 2px;
+    }
+    
+    .btn-icon {
+        border: 2px solid #000;
+    }
+}
+
+/* Australian farm-specific buttons */
+.btn-aussie-green {
+    background-color: var(--aussie-green, #018E42);
+    color: white;
+    border-color: var(--aussie-green, #018E42);
+}
+
+.btn-aussie-green:hover {
+    background-color: #007235;
+    border-color: #006730;
+}
+
+.btn-aussie-blue {
+    background-color: var(--aussie-blue, #0066B2);
+    color: white;
+    border-color: var(--aussie-blue, #0066B2);
+}
+
+.btn-aussie-blue:hover {
+    background-color: #005291;
+    border-color: #004A80;
+}
+
+.btn-aussie-gold {
+    background-color: var(--aussie-gold, #FFBF00);
+    color: #212529;
+    border-color: var(--aussie-gold, #FFBF00);
+}
+
+.btn-aussie-gold:hover {
+    background-color: #E0A800;
+    border-color: #D39E00;
+}
+
+/* Print styles */
+@media print {
+    .btn, .fab, .btn-icon {
+        display: none !important;
+    }
+}
+
+/* User profile dropdown toggle button */
+.dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: var(--text-secondary, #666);
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-toggle:hover {
+    color: var(--primary-color, #FF007F);
+}
+
+.dropdown-toggle:focus {
+    outline: none;
+    color: var(--primary-color, #FF007F);
+}
+
+.dropdown-toggle i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active i,
+.user-dropdown.show + .dropdown-toggle i,
+.user-profile:has(.user-dropdown.show) .dropdown-toggle i {
+    transform: rotate(180deg);
+} 

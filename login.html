@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth-modern.css">
+    
+    <!-- Meta tags for better SEO and accessibility -->
+    <meta name="description" content="Login to PIPA Farm management system for Australian farms.">
+    <meta name="keywords" content="farm management, australian farms, agriculture, login">
+    <meta name="author" content="PIPA Farm Solutions">
+</head>
+<body class="auth-page-modern">
+    <!-- Offline indicator -->
+    <div class="offline-indicator">
+        <i class="fas fa-wifi"></i> You are currently offline
+    </div>
+
+    <div class="auth-container-modern">
+        <div class="auth-form-panel">
+            <div class="login-container">
+                <div class="login-logo">
+                    <img src="assets/images/tractor-icon-white.svg" alt="PIPA" style="background-color: #f0f0f0;">
+                </div>
+                
+                <h1 class="login-heading">Login</h1>
+                
+                <form id="loginForm" class="login-form" action="index.html" method="GET">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="developer.tahirm@gmail.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="Hold#901" required>
+                    </div>
+                    
+                    <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                    
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+                
+                <div class="login-divider">
+                    <span>Or</span>
+                </div>
+                
+                <a href="register.html" class="create-account-link">Create an account</a>
+            </div>
+        </div>
+        
+        <div class="auth-brand-panel">
+            <h1 class="brand-heading">People in Paddocks</h1>
+            <p class="brand-tagline">
+                The workforce management tool for recruiting, training & managing people
+            </p>
+            <img src="assets/images/tractor-icon-white.svg" alt="PIPA Farm" class="brand-logo">
+        </div>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Check for online/offline status
+        function updateOnlineStatus() {
+            const offlineIndicator = document.querySelector('.offline-indicator');
+            if (navigator.onLine) {
+                offlineIndicator.classList.remove('visible');
+            } else {
+                offlineIndicator.classList.add('visible');
+            }
+        }
+        
+        // Show notification
+        function showNotification(title, message, type) {
+            const container = document.getElementById('notificationContainer');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            notification.innerHTML = `
+                <div class="notification-icon">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">${title}</div>
+                    <div class="notification-message">${message}</div>
+                </div>
+                <button class="notification-close" aria-label="Close notification">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Auto-dismiss after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            updateOnlineStatus();
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            
+            // Handle URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const logoutParam = urlParams.get('logout');
+            
+            if (logoutParam === 'success') {
+                showNotification('Success', 'You have been successfully logged out', 'success');
+            }
+            
+            // Handle form submission
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                // Don't prevent default - let the form submit naturally
+                showNotification('Success', 'Login successful!', 'success');
+            });
+            
+            // Auto-login after page loads - comment this out to disable auto-login
+            setTimeout(() => {
+                document.getElementById('loginForm').submit();
+            }, 500);
+        });
+    </script>
+</body>
+</html> 

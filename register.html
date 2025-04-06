@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth-modern.css">
+    
+    <!-- Meta tags for better SEO and accessibility -->
+    <meta name="description" content="Register for PIPA Farm management system for Australian farms.">
+    <meta name="keywords" content="farm management, australian farms, agriculture, register">
+    <meta name="author" content="PIPA Farm Solutions">
+    
+    <!-- iOS specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PIPA Farm">
+    
+    <!-- Android specific meta tags -->
+    <meta name="theme-color" content="#FF007F">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <style>
+        /* Wizard specific styling */
+        .wizard-container {
+            width: 100%;
+            max-width: 480px;
+        }
+        
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .wizard-steps:before {
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: var(--gray-300);
+            z-index: 1;
+        }
+        
+        .wizard-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .wizard-step.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .wizard-step.completed {
+            background: var(--success-color);
+            border-color: var(--success-color);
+            color: var(--white);
+        }
+        
+        .wizard-step-content {
+            display: none;
+        }
+        
+        .wizard-step-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        
+        .wizard-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        
+        .wizard-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 120px;
+        }
+        
+        .btn-next {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
+        
+        .btn-next:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-prev {
+            background-color: var(--white);
+            color: var(--text-color);
+            border: 1px solid var(--gray-300);
+        }
+        
+        .btn-prev:hover {
+            background-color: var(--gray-100);
+        }
+        
+        /* Payment form */
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .payment-method {
+            flex: 1;
+            border: 1px solid var(--gray-300);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(var(--primary-color-rgb), 0.05);
+        }
+        
+        .payment-method i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .card-element {
+            padding: 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* PayPal specific styling */
+        #paypalPayment {
+            min-height: 180px;
+            margin-bottom: 1rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Credit card form layout */
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+        }
+        
+        .form-group-half {
+            flex: 1;
+        }
+        
+        /* Terms checkbox styling */
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .terms-checkbox input {
+            margin-top: 0.25rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 576px) {
+            .wizard-container {
+                padding: 0 0.5rem;
+            }
+            
+            .wizard-actions {
+                flex-direction: column-reverse;
+                gap: 0.75rem;
+            }
+            
+            .wizard-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="auth-page-modern">
+    <!-- Offline indicator -->
+    <div class="offline-indicator">
+        <i class="fas fa-wifi"></i> You are currently offline
+    </div>
+
+    <div class="auth-container-modern">
+        <div class="auth-form-panel">
+            <div class="wizard-container">
+                <div class="login-logo">
+                    <img src="assets/images/tractor-icon-white.svg" alt="PIPA" style="background-color: #f0f0f0;">
+                </div>
+                
+                <h1 class="login-heading">Create Account</h1>
+                
+                <!-- Wizard steps indicator -->
+                <div class="wizard-steps">
+                    <div class="wizard-step active" data-step="1">1</div>
+                    <div class="wizard-step" data-step="2">2</div>
+                    <div class="wizard-step" data-step="3">3</div>
+                </div>
+                
+                <!-- Step 1: Account Details -->
+                <div class="wizard-step-content active" data-step="1">
+                    <h2 class="step-title">Account Details</h2>
+                    <p class="step-description">Create your login credentials</p>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-control" required>
+                    </div>
+                    
+                    <div id="passwordStrength" class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-indicator" style="width: 0"></div>
+                        </div>
+                        <span class="strength-text">Password strength: Too weak</span>
+                    </div>
+                    
+                    <div class="wizard-actions">
+                        <a href="login.html" class="wizard-btn btn-prev">Back to Login</a>
+                        <button class="wizard-btn btn-next" id="nextStep1">Next: Farm Details</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Farm Details -->
+                <div class="wizard-step-content" data-step="2">
+                    <h2 class="step-title">Farm Details</h2>
+                    <p class="step-description">Tell us about your farm</p>
+                    
+                    <div class="form-group">
+                        <input type="text" id="farmName" name="farmName" placeholder="Farm Name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="address" name="address" placeholder="Farm Address" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="farmType" name="farmType" class="form-control" required>
+                            <option value="" disabled selected>Farm Type</option>
+                            <option value="livestock">Livestock</option>
+                            <option value="crop">Crop</option>
+                            <option value="dairy">Dairy</option>
+                            <option value="mixed">Mixed</option>
+                            <option value="specialty">Specialty</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="number" id="employeeCount" name="employeeCount" placeholder="Number of Workers" class="form-control" required>
+                    </div>
+                    
+                    <div class="wizard-actions">
+                        <button class="wizard-btn btn-prev" id="prevStep2">Previous</button>
+                        <button class="wizard-btn btn-next" id="nextStep2">Next: Payment</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Payment -->
+                <div class="wizard-step-content" data-step="3">
+                    <h2 class="step-title">Payment Information</h2>
+                    <p class="step-description">Secure payment to activate your account</p>
+                    
+                    <div class="form-group">
+                        <div class="payment-methods">
+                            <div class="payment-method selected" data-method="card">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit Card</span>
+                            </div>
+                            <div class="payment-method" data-method="paypal">
+                                <i class="fab fa-paypal"></i>
+                                <span>PayPal</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="cardPayment">
+                        <div class="form-group">
+                            <input type="text" id="cardName" name="cardName" placeholder="Name on Card" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group form-group-half">
+                                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" class="form-control" required>
+                            </div>
+                            <div class="form-group form-group-half">
+                                <input type="text" id="cvc" name="cvc" placeholder="CVC" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="paypalPayment" style="display: none;">
+                        <div class="text-center" style="padding: 2rem 0;">
+                            <p>You'll be redirected to PayPal to complete your payment after clicking "Complete Registration".</p>
+                            <i class="fab fa-paypal" style="font-size: 2.5rem; color: #0070ba; margin: 1rem 0;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="terms-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span>I agree to the <a href="#" style="color: var(--primary-color);">Terms of Service</a> and <a href="#" style="color: var(--primary-color);">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="wizard-actions">
+                        <button class="wizard-btn btn-prev" id="prevStep3">Previous</button>
+                        <button class="wizard-btn btn-next" id="completeRegistration">Complete Registration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="auth-brand-panel">
+            <h1 class="brand-heading">People in Paddocks</h1>
+            <p class="brand-tagline">
+                The workforce management tool for recruiting, training & managing people
+            </p>
+            <img src="assets/images/tractor-icon-white.svg" alt="PIPA Farm" class="brand-logo">
+        </div>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script>
+        // Register service worker for offline support
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+        }
+        
+        // DOM elements
+        const wizardSteps = document.querySelectorAll('.wizard-step');
+        const wizardContents = document.querySelectorAll('.wizard-step-content');
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        
+        // Form data state
+        const userData = {
+            email: '',
+            password: '',
+            farmName: '',
+            farmType: '',
+            address: '',
+            employeeCount: 0,
+            paymentMethod: 'card'
+        };
+        
+        // Current step
+        let currentStep = 1;
+        
+        // Initialize the wizard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment method selection
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    userData.paymentMethod = this.dataset.method;
+                    
+                    // Toggle payment form display
+                    if (this.dataset.method === 'card') {
+                        document.getElementById('cardPayment').style.display = 'block';
+                        document.getElementById('paypalPayment').style.display = 'none';
+                    } else {
+                        document.getElementById('cardPayment').style.display = 'none';
+                        document.getElementById('paypalPayment').style.display = 'block';
+                    }
+                });
+            });
+            
+            // Password strength
+            const passwordInput = document.getElementById('password');
+            const strengthIndicator = document.querySelector('.strength-indicator');
+            const strengthText = document.querySelector('.strength-text');
+            
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                // Calculate strength
+                if (password.length > 6) strength += 20;
+                if (password.length > 10) strength += 10;
+                if (/[A-Z]/.test(password)) strength += 20;
+                if (/[0-9]/.test(password)) strength += 20;
+                if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+                
+                // Update UI
+                strengthIndicator.style.width = `${strength}%`;
+                
+                if (strength < 40) {
+                    strengthIndicator.style.backgroundColor = '#dc3545';
+                    strengthText.textContent = 'Password strength: Too weak';
+                } else if (strength < 70) {
+                    strengthIndicator.style.backgroundColor = '#ffc107';
+                    strengthText.textContent = 'Password strength: Medium';
+                } else {
+                    strengthIndicator.style.backgroundColor = '#28a745';
+                    strengthText.textContent = 'Password strength: Strong';
+                }
+            });
+            
+            // Step navigation
+            document.getElementById('nextStep1').addEventListener('click', function() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                // Validate
+                if (!email) {
+                    showNotification('Error', 'Please enter your email', 'error');
+                    return;
+                }
+                
+                if (!password) {
+                    showNotification('Error', 'Please enter a password', 'error');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    showNotification('Error', 'Passwords do not match', 'error');
+                    return;
+                }
+                
+                // Store data
+                userData.email = email;
+                userData.password = password;
+                
+                goToStep(2);
+            });
+            
+            document.getElementById('prevStep2').addEventListener('click', function() {
+                goToStep(1);
+            });
+            
+            document.getElementById('nextStep2').addEventListener('click', function() {
+                const farmName = document.getElementById('farmName').value;
+                const address = document.getElementById('address').value;
+                const farmType = document.getElementById('farmType').value;
+                const employeeCount = document.getElementById('employeeCount').value;
+                
+                // Validate
+                if (!farmName) {
+                    showNotification('Error', 'Please enter your farm name', 'error');
+                    return;
+                }
+                
+                if (!address) {
+                    showNotification('Error', 'Please enter your farm address', 'error');
+                    return;
+                }
+                
+                if (!farmType) {
+                    showNotification('Error', 'Please select a farm type', 'error');
+                    return;
+                }
+                
+                if (!employeeCount) {
+                    showNotification('Error', 'Please enter the number of workers', 'error');
+                    return;
+                }
+                
+                // Store data
+                userData.farmName = farmName;
+                userData.address = address;
+                userData.farmType = farmType;
+                userData.employeeCount = employeeCount;
+                
+                goToStep(3);
+            });
+            
+            document.getElementById('prevStep3').addEventListener('click', function() {
+                goToStep(2);
+            });
+            
+            document.getElementById('completeRegistration').addEventListener('click', function() {
+                const terms = document.getElementById('terms').checked;
+                
+                if (!terms) {
+                    showNotification('Error', 'Please agree to the terms and conditions', 'error');
+                    return;
+                }
+                
+                // For demo purposes, show a success message and redirect to dashboard
+                showNotification('Success', 'Account created successfully! Redirecting to dashboard...', 'success');
+                
+                // Simulate processing delay
+                setTimeout(() => {
+                    window.location.replace('index.html');
+                }, 2500);
+            });
+        });
+        
+        // Function to navigate between steps
+        function goToStep(step) {
+            // Update current step
+            currentStep = step;
+            
+            // Update step indicators
+            wizardSteps.forEach(stepEl => {
+                const stepNum = parseInt(stepEl.dataset.step);
+                
+                if (stepNum < currentStep) {
+                    stepEl.classList.remove('active');
+                    stepEl.classList.add('completed');
+                    stepEl.innerHTML = '<i class="fas fa-check"></i>';
+                } else if (stepNum === currentStep) {
+                    stepEl.classList.add('active');
+                    stepEl.classList.remove('completed');
+                    stepEl.textContent = stepNum;
+                } else {
+                    stepEl.classList.remove('active', 'completed');
+                    stepEl.textContent = stepNum;
+                }
+            });
+            
+            // Show current step content
+            wizardContents.forEach(content => {
+                if (parseInt(content.dataset.step) === currentStep) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+        
+        // Check online/offline status
+        function updateOnlineStatus() {
+            const offlineIndicator = document.querySelector('.offline-indicator');
+            if (navigator.onLine) {
+                offlineIndicator.classList.remove('visible');
+            } else {
+                offlineIndicator.classList.add('visible');
+            }
+        }
+        
+        window.addEventListener('load', function() {
+            updateOnlineStatus();
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+        });
+        
+        // Show notification function
+        function showNotification(title, message, type) {
+            const container = document.getElementById('notificationContainer');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            notification.innerHTML = `
+                <div class="notification-icon">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">${title}</div>
+                    <div class="notification-message">${message}</div>
+                </div>
+                <button class="notification-close" aria-label="Close notification">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Handle close button
+            const closeBtn = notification.querySelector('.notification-close');
+            closeBtn.addEventListener('click', function() {
+                notification.style.animation = 'fadeOut 0.3s forwards';
+                setTimeout(() => {
+                    if (container.contains(notification)) {
+                        container.removeChild(notification);
+                    }
+                }, 300);
+            });
+            
+            // Auto-dismiss after 5 seconds
+            setTimeout(() => {
+                if (container.contains(notification)) {
+                    notification.style.animation = 'fadeOut 0.3s forwards';
+                    setTimeout(() => {
+                        if (container.contains(notification)) {
+                            container.removeChild(notification);
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Settings - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <i class="fas fa-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employees.html">
+                            <i class="fas fa-users"></i>
+                            Employees
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tasks.html">
+                            <i class="fas fa-tasks"></i>
+                            Tasks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="timesheets.html">
+                            <i class="fas fa-clock"></i>
+                            Timesheets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="safety.html">
+                            <i class="fas fa-hard-hat"></i>
+                            Safety Reports
+                        </a>
+                    </li>
+                    <li>
+                        <a href="calendar.html">
+                            <i class="fas fa-calendar"></i>
+                            Calendar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="find-workers.html">
+                            <i class="fas fa-search"></i>
+                            Find Workers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="chat.html">
+                            <i class="fas fa-comments"></i>
+                            Chat
+                        </a>
+                    </li>
+                    <li>
+                        <a href="training.html">
+                            <i class="fas fa-graduation-cap"></i>
+                            Training
+                        </a>
+                    </li>
+                    <div class="nav-divider"></div>
+                    <li class="active">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Sam Pritchard" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>SP</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Sam Pritchard</span>
+                            <span class="user-role">Farm Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="settings-container">
+                <header class="settings-header">
+                    <div class="header-content">
+                        <h2>Company Settings</h2>
+                        <p class="header-description">Manage your farm's configuration and preferences</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-undo"></i>
+                            Reset Changes
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </header>
+
+                <div class="settings-nav">
+                    <button class="nav-item active" data-section="company">
+                        <i class="fas fa-building"></i>
+                        Company Profile
+                    </button>
+                    <button class="nav-item" data-section="locations">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Locations & Activities
+                    </button>
+                    <button class="nav-item" data-section="farm-assets">
+                        <i class="fas fa-tractor"></i>
+                        Farm Assets
+                    </button>
+                    <button class="nav-item" data-section="branding">
+                        <i class="fas fa-palette"></i>
+                        Branding & Design
+                    </button>
+                    <button class="nav-item" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        Alerts & Notifications
+                    </button>
+                    <button class="nav-item" data-section="integrations">
+                        <i class="fas fa-plug"></i>
+                        API Integrations
+                    </button>
+                    <button class="nav-item" data-section="configuration">
+                        <i class="fas fa-sliders-h"></i>
+                        Configuration
+                    </button>
+                    <button class="nav-item" data-section="users">
+                        <i class="fas fa-users-cog"></i>
+                        User Management
+                    </button>
+                    <button class="nav-item" data-section="billing">
+                        <i class="fas fa-credit-card"></i>
+                        Billing & Subscription
+                    </button>
+                </div>
+
+                <div class="settings-content">
+                    <!-- Company Profile Section -->
+                    <section class="settings-section active" id="company">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>Basic Information</h3>
+                                <div class="form-group">
+                                    <label for="company-name">Company Name</label>
+                                    <input type="text" id="company-name" value="PIPA Farm" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-abn">ABN</label>
+                                    <input type="text" id="company-abn" value="12 345 678 901" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-address">Address</label>
+                                    <textarea id="company-address" class="form-control">123 Farm Road
+Rural City, VIC 3000</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Contact Information</h3>
+                                <div class="form-group">
+                                    <label for="contact-email">Email</label>
+                                    <input type="email" id="contact-email" value="info@pipafarm.com" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-phone">Phone</label>
+                                    <input type="tel" id="contact-phone" value="(03) 9123 4567" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-website">Website</label>
+                                    <input type="url" id="contact-website" value="https://pipafarm.com" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Business Hours</h3>
+                                <div class="form-group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone" class="form-control">
+                                        <option value="Australia/Melbourne" selected>Melbourne (AEST/AEDT)</option>
+                                        <option value="Australia/Sydney">Sydney (AEST/AEDT)</option>
+                                        <option value="Australia/Perth">Perth (AWST)</option>
+                                    </select>
+                                </div>
+                                <div class="hours-grid">
+                                    <div class="form-group">
+                                        <label>Opening Time</label>
+                                        <input type="time" value="07:00" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Closing Time</label>
+                                        <input type="time" value="18:00" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Enable after-hours notifications
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Locations & Activities Section -->
+                    <section class="settings-section" id="locations">
+                        <div class="section-grid locations-activities-grid">
+                            <!-- Locations Table -->
+                            <div class="form-card locations-card">
+                                <div class="card-header-with-action">
+                                    <h3>Locations</h3>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-plus"></i>
+                                        Add location
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="settings-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Location</th>
+                                                <th>Created at</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Long paddock</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Office</td>
+                                                <td>24/02/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>One tree paddock</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sheep yards</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Truck</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Workshop</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Activities Table -->
+                            <div class="form-card activities-card">
+                                <div class="card-header-with-action">
+                                    <h3>Activities</h3>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-plus"></i>
+                                        Add activities
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="settings-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Activity</th>
+                                                <th>Created at</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Customer Support</td>
+                                                <td>24/02/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Development</td>
+                                                <td>24/02/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Maintenance</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Livestock</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Paddock Prep</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Research</td>
+                                                <td>24/02/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Training</td>
+                                                <td>15/01/2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Location Form Modal -->
+                            <div class="modal-template" id="location-modal-template">
+                                <div class="form-card">
+                                    <h3>Add Location</h3>
+                                    <div class="form-group">
+                                        <label for="location-name">Location Name</label>
+                                        <input type="text" id="location-name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location-type">Location Type</label>
+                                        <select id="location-type" class="form-control">
+                                            <option value="paddock">Paddock</option>
+                                            <option value="facility">Facility</option>
+                                            <option value="equipment">Equipment</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location-image">Location Image</label>
+                                        <div class="image-upload">
+                                            <div class="image-preview">
+                                                <img src="assets/images/placeholder-location.jpg" alt="Location Preview" id="location-image-preview">
+                                            </div>
+                                            <div class="upload-controls">
+                                                <button class="btn btn-secondary">
+                                                    <i class="fas fa-upload"></i>
+                                                    Upload Image
+                                                </button>
+                                                <p class="upload-hint">Recommended size: 800x600px, JPEG or PNG format</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location-coordinates">GPS Coordinates (Optional)</label>
+                                        <input type="text" id="location-coordinates" placeholder="e.g. -37.8136, 144.9631" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location-notes">Notes</label>
+                                        <textarea id="location-notes" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button class="btn btn-secondary" data-action="cancel">Cancel</button>
+                                        <button class="btn btn-primary" data-action="save">Save Location</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Activity Form Modal -->
+                            <div class="modal-template" id="activity-modal-template">
+                                <div class="form-card">
+                                    <h3>Add Activity</h3>
+                                    <div class="form-group">
+                                        <label for="activity-name">Activity Name</label>
+                                        <input type="text" id="activity-name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activity-category">Category</label>
+                                        <select id="activity-category" class="form-control">
+                                            <option value="crop">Crop Management</option>
+                                            <option value="livestock">Livestock Management</option>
+                                            <option value="maintenance">Maintenance</option>
+                                            <option value="office">Office Work</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activity-icon">Icon</label>
+                                        <div class="icon-selector">
+                                            <div class="icon-grid">
+                                                <div class="icon-option selected"><i class="fas fa-tractor"></i></div>
+                                                <div class="icon-option"><i class="fas fa-cow"></i></div>
+                                                <div class="icon-option"><i class="fas fa-seedling"></i></div>
+                                                <div class="icon-option"><i class="fas fa-tools"></i></div>
+                                                <div class="icon-option"><i class="fas fa-clipboard"></i></div>
+                                                <div class="icon-option"><i class="fas fa-clock"></i></div>
+                                                <div class="icon-option"><i class="fas fa-truck"></i></div>
+                                                <div class="icon-option"><i class="fas fa-warehouse"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="activity-description">Description</label>
+                                        <textarea id="activity-description" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="activity-timetracking">
+                                            Requires time tracking
+                                        </label>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button class="btn btn-secondary" data-action="cancel">Cancel</button>
+                                        <button class="btn btn-primary" data-action="save">Save Activity</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Farm Assets Section -->
+                    <section class="settings-section" id="farm-assets">
+                        <div class="section-grid">
+                            <div class="form-card full-width">
+                                <div class="card-header-with-action">
+                                    <h3>Farm Assets</h3>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-plus"></i>
+                                        Add asset
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="settings-table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID code</th>
+                                                <th>Asset name</th>
+                                                <th>Created at</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>XVV235</td>
+                                                <td>Header Case 8120 2024</td>
+                                                <td>January 15, 2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>XVH569</td>
+                                                <td>Sprayer Goldacres G8</td>
+                                                <td>January 15, 2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>VXX123</td>
+                                                <td>Tractor Case Magnum 380 2024</td>
+                                                <td>January 15, 2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>XVV789</td>
+                                                <td>Tractor JD 7R 2024</td>
+                                                <td>January 15, 2025</td>
+                                                <td>
+                                                    <button class="action-btn edit-btn">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button class="action-btn delete-btn">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Farm Asset Modal Template -->
+                        <div class="modal-template" id="asset-modal-template">
+                            <div class="form-card">
+                                <h3>Add Farm Asset</h3>
+                                <div class="form-group">
+                                    <label for="asset-id">Asset ID Code</label>
+                                    <input type="text" id="asset-id" class="form-control" placeholder="e.g. XVV123">
+                                    <small class="form-hint">Enter a unique ID code for this asset</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-name">Asset Name</label>
+                                    <input type="text" id="asset-name" class="form-control" placeholder="e.g. Tractor JD 7R 2024">
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-category">Category</label>
+                                    <select id="asset-category" class="form-control">
+                                        <option value="tractor">Tractor</option>
+                                        <option value="harvester">Harvester</option>
+                                        <option value="sprayer">Sprayer</option>
+                                        <option value="truck">Truck</option>
+                                        <option value="implement">Implement</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-purchase-date">Purchase Date</label>
+                                    <input type="date" id="asset-purchase-date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-purchase-price">Purchase Price</label>
+                                    <div class="input-with-prefix">
+                                        <span class="input-prefix">$</span>
+                                        <input type="number" id="asset-purchase-price" class="form-control" min="0" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-image">Asset Image</label>
+                                    <div class="image-upload">
+                                        <div class="image-preview">
+                                            <img src="assets/images/placeholder-asset.jpg" alt="Asset Preview" id="asset-image-preview">
+                                        </div>
+                                        <div class="upload-controls">
+                                            <button class="btn btn-secondary">
+                                                <i class="fas fa-upload"></i>
+                                                Upload Image
+                                            </button>
+                                            <p class="upload-hint">Recommended size: 800x600px, JPEG or PNG format</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-serial">Serial Number</label>
+                                    <input type="text" id="asset-serial" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-year">Year</label>
+                                    <input type="number" id="asset-year" class="form-control" min="1900" max="2100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="asset-notes">Notes</label>
+                                    <textarea id="asset-notes" class="form-control" rows="3"></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-secondary" data-action="cancel">Cancel</button>
+                                    <button class="btn btn-primary" data-action="save">Save Asset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Branding Section -->
+                    <section class="settings-section" id="branding">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>Logo</h3>
+                                <div class="form-group">
+                                    <label>Company Logo</label>
+                                    <div class="logo-upload">
+                                        <div class="logo-preview">
+                                            <img src="assets/images/logo.png" alt="Company Logo" onerror="this.onerror=null; this.src='assets/images/placeholder-logo.png';">
+                                        </div>
+                                        <div class="upload-controls">
+                                            <button class="btn btn-secondary">
+                                                <i class="fas fa-upload"></i>
+                                                Upload New Logo
+                                            </button>
+                                            <p class="upload-hint">Recommended size: 200x200px, PNG or SVG format</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Farm Name</h3>
+                                <div class="form-group">
+                                    <label for="farm-display-name">Display Name</label>
+                                    <input type="text" id="farm-display-name" value="PIPA Farm" class="form-control">
+                                    <small class="form-hint">This name will be displayed throughout the application</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="farm-short-name">Short Name</label>
+                                    <input type="text" id="farm-short-name" value="PIPA" class="form-control">
+                                    <small class="form-hint">Used where space is limited (e.g., in the sidebar)</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Display logo alongside name
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Favicon</h3>
+                                <div class="form-group">
+                                    <label>Browser Tab Icon</label>
+                                    <div class="favicon-upload">
+                                        <div class="favicon-preview">
+                                            <img src="assets/images/favicon.ico" alt="Favicon" onerror="this.onerror=null; this.src='assets/images/placeholder-favicon.png';">
+                                        </div>
+                                        <div class="upload-controls">
+                                            <button class="btn btn-secondary">
+                                                <i class="fas fa-upload"></i>
+                                                Upload New Favicon
+                                            </button>
+                                            <p class="upload-hint">Recommended size: 32x32px or 64x64px, ICO or PNG format</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Notifications Section -->
+                    <section class="settings-section" id="notifications">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>Email Notifications</h3>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Daily Task Summary
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Weather Alerts
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Safety Report Notifications
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Employee Update Notifications
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>SMS Notifications</h3>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        Emergency Alerts
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox">
+                                        Weather Warnings
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sms-number">SMS Number</label>
+                                    <input type="tel" id="sms-number" placeholder="+61 4XX XXX XXX" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Integrations Section -->
+                    <section class="settings-section" id="integrations">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>Accounting Software</h3>
+                                <div class="integration-status connected">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Connected to Xero</span>
+                                </div>
+                                <p class="integration-description">
+                                    Once your accounting software is connected, you will be able to export your timesheets, making payroll less time consuming.
+                                </p>
+                                <div class="form-group">
+                                    <label>Connected Account</label>
+                                    <div class="connected-account">
+                                        <i class="fab fa-xero"></i>
+                                        <div class="account-details">
+                                            <div class="account-name">PIPA Farm (admin@pipafarm.com)</div>
+                                            <div class="account-status">Connected on 12 Jan 2025</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-unlink"></i>
+                                        Disconnect from Xero
+                                    </button>
+                                </div>
+                                <hr class="form-divider">
+                                <h4>Available Accounting Integrations</h4>
+                                <div class="integration-options">
+                                    <div class="integration-option selected">
+                                        <div class="integration-logo">
+                                            <i class="fab fa-xero"></i>
+                                        </div>
+                                        <div class="integration-name">Xero</div>
+                                    </div>
+                                    <div class="integration-option">
+                                        <div class="integration-logo">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="integration-name">MYOB</div>
+                                    </div>
+                                    <div class="integration-option">
+                                        <div class="integration-logo">
+                                            <i class="fas fa-calculator"></i>
+                                        </div>
+                                        <div class="integration-name">QuickBooks</div>
+                                    </div>
+                                    <div class="integration-option">
+                                        <div class="integration-logo">
+                                            <i class="fas fa-file-invoice-dollar"></i>
+                                        </div>
+                                        <div class="integration-name">Sage</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Weather API</h3>
+                                <div class="integration-status connected">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Connected to BOM Weather API</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="weather-api-key">API Key</label>
+                                    <input type="text" id="weather-api-key" value="••••••••••••••••" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="weather-location">Location ID</label>
+                                    <input type="text" id="weather-location" value="Melbourne-3000" class="form-control">
+                                </div>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-cog"></i>
+                                    Configure
+                                </button>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Email Service</h3>
+                                <div class="integration-status connected">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Connected to SMTP Server</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-server">SMTP Server</label>
+                                    <input type="text" id="smtp-server" value="smtp.pipafarm.com" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-username">Username</label>
+                                    <input type="text" id="smtp-username" value="notifications@pipafarm.com" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-password">Password</label>
+                                    <input type="password" id="smtp-password" value="••••••••••••" class="form-control">
+                                </div>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-cog"></i>
+                                    Configure
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Configuration Settings Section -->
+                    <section class="settings-section" id="configuration">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>Timesheet Rounding</h3>
+                                <p class="setting-description">Set the interval for rounding timesheet entries</p>
+                                <div class="form-group">
+                                    <select id="timesheet-rounding" class="form-control">
+                                        <option value="1">1 minute</option>
+                                        <option value="5">5 minutes</option>
+                                        <option value="10">10 minutes</option>
+                                        <option value="15" selected>15 minutes</option>
+                                        <option value="30">30 minutes</option>
+                                        <option value="60">60 minutes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Report Frequency</h3>
+                                <p class="setting-description">Set how often you want to receive reports</p>
+                                <div class="form-group">
+                                    <select id="report-frequency" class="form-control">
+                                        <option value="daily">Daily</option>
+                                        <option value="weekly" selected>1 per week</option>
+                                        <option value="fortnightly">1 per fortnight</option>
+                                        <option value="monthly">1 per month</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Fatigue Management</h3>
+                                <p class="setting-description">Set how frequently employees can start a shift that is longer than 8 hours</p>
+                                <div class="form-group">
+                                    <select id="fatigue-management" class="form-control">
+                                        <option value="none" selected>No fatigue management</option>
+                                        <option value="8hour">8 hour minimum break</option>
+                                        <option value="10hour">10 hour minimum break</option>
+                                        <option value="12hour">12 hour minimum break</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Break Reminder</h3>
+                                <p class="setting-description">Set how frequently employees will be reminded to take a break</p>
+                                <div class="form-group">
+                                    <select id="break-reminder" class="form-control">
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                        <option value="5" selected>5 hours</option>
+                                        <option value="never">Never</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Payroll Settings</h3>
+                                <p class="setting-description">Set the frequency and start date for payroll</p>
+                                <div class="form-group">
+                                    <label for="payroll-frequency">Payroll Frequency</label>
+                                    <select id="payroll-frequency" class="form-control">
+                                        <option value="weekly">Weekly</option>
+                                        <option value="fortnightly" selected>Fortnightly</option>
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="payroll-start-date">Payroll Start Date</label>
+                                    <input type="date" id="payroll-start-date" value="2025-01-15" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Leave Settings</h3>
+                                <p class="setting-description">Set the paid leave hours per day</p>
+                                <div class="form-group">
+                                    <label for="leave-hours">Leave Hours</label>
+                                    <input type="number" id="leave-hours" value="7.6" min="0" max="24" step="0.1" class="form-control">
+                                    <small class="form-hint">Standard workday hours for leave calculations</small>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- User Management Section -->
+                    <section class="settings-section" id="users">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>User Roles</h3>
+                                <div class="form-group">
+                                    <label for="default-role">Default User Role</label>
+                                    <select id="default-role" class="form-control">
+                                        <option value="viewer">Viewer (Read-only)</option>
+                                        <option value="staff" selected>Staff Member</option>
+                                        <option value="admin">Administrator</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Allow role modification by administrators
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked>
+                                        Require approval for new user registrations
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>User Permissions</h3>
+                                <div class="form-group">
+                                    <label>Staff Members Can:</label>
+                                    <div class="checkbox-grid">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" checked>
+                                            View employees
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" checked>
+                                            Create tasks
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" checked>
+                                            Submit timesheets
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" checked>
+                                            Report safety issues
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox">
+                                            Modify calendar events
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox">
+                                            Access financial data
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Invite Users</h3>
+                                <div class="form-group">
+                                    <label for="invite-email">Email Address</label>
+                                    <input type="email" id="invite-email" placeholder="user@example.com" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="invite-role">Role</label>
+                                    <select id="invite-role" class="form-control">
+                                        <option value="viewer">Viewer</option>
+                                        <option value="staff" selected>Staff Member</option>
+                                        <option value="admin">Administrator</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Invitation
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Billing & Subscription Section -->
+                    <section class="settings-section" id="billing">
+                        <div class="section-grid">
+                            <div class="form-card">
+                                <h3>Current Plan</h3>
+                                <div class="plan-info">
+                                    <div class="plan-badge premium">
+                                        <i class="fas fa-star"></i>
+                                        Premium Plan
+                                    </div>
+                                    <div class="plan-details">
+                                        <div class="plan-price">$49.99 / month</div>
+                                        <div class="plan-cycle">Billed annually</div>
+                                        <div class="plan-renewal">
+                                            <i class="fas fa-calendar-check"></i>
+                                            Renews on 15 Dec 2023
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plan-features">
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Unlimited users</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Advanced reporting</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>API access</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check"></i>
+                                        <span>Priority support</span>
+                                    </div>
+                                </div>
+                                <div class="plan-actions">
+                                    <button class="btn btn-outline-primary">
+                                        <i class="fas fa-arrow-up"></i>
+                                        Upgrade Plan
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Payment Method</h3>
+                                <div class="payment-method">
+                                    <div class="payment-card">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <div class="card-details">
+                                            <div class="card-number">•••• •••• •••• 4567</div>
+                                            <div class="card-expiry">Expires 08/2025</div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        Edit
+                                    </button>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="fas fa-plus"></i>
+                                        Add Payment Method
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-card">
+                                <h3>Billing History</h3>
+                                <div class="billing-history">
+                                    <table class="billing-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>15 Dec 2022</td>
+                                                <td>Premium Plan (Annual)</td>
+                                                <td>$599.88</td>
+                                                <td><span class="status-badge paid">Paid</span></td>
+                                                <td>
+                                                    <a href="#" class="table-action">
+                                                        <i class="fas fa-download"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>15 Dec 2021</td>
+                                                <td>Premium Plan (Annual)</td>
+                                                <td>$559.88</td>
+                                                <td><span class="status-badge paid">Paid</span></td>
+                                                <td>
+                                                    <a href="#" class="table-action">
+                                                        <i class="fas fa-download"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>15 Dec 2020</td>
+                                                <td>Standard Plan (Annual)</td>
+                                                <td>$359.88</td>
+                                                <td><span class="status-badge paid">Paid</span></td>
+                                                <td>
+                                                    <a href="#" class="table-action">
+                                                        <i class="fas fa-download"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/avatars.js"></script>
+    
+    <!-- Settings page specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.settings-section');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all nav items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Show the selected section
+                    const sectionId = this.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+
+            // Locations & Activities functionality
+            if (document.getElementById('locations')) {
+                initLocationsAndActivities();
+            }
+
+            // Farm Assets functionality
+            if (document.getElementById('farm-assets')) {
+                initFarmAssets();
+            }
+
+            // Integration options functionality
+            if (document.getElementById('integrations')) {
+                initIntegrations();
+            }
+        });
+
+        function initLocationsAndActivities() {
+            // References to elements
+            const addLocationBtn = document.querySelector('.locations-card .btn-primary');
+            const addActivityBtn = document.querySelector('.activities-card .btn-primary');
+            const locationModalTemplate = document.getElementById('location-modal-template');
+            const activityModalTemplate = document.getElementById('activity-modal-template');
+            
+            // Create modal container if it doesn't exist
+            let modalContainer = document.querySelector('.modal-container');
+            if (!modalContainer) {
+                modalContainer = document.createElement('div');
+                modalContainer.className = 'modal-container';
+                document.body.appendChild(modalContainer);
+                
+                // Add style for modal container
+                const style = document.createElement('style');
+                style.textContent = `
+                    .modal-container {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: opacity 0.3s ease, visibility 0.3s ease;
+                    }
+                    .modal-container.active {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .modal-content {
+                        width: 100%;
+                        max-width: 600px;
+                        margin: 0 20px;
+                        animation: modalFadeIn 0.3s ease;
+                    }
+                    @keyframes modalFadeIn {
+                        from { transform: translateY(-20px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Add click handler for the Add Location button
+            addLocationBtn.addEventListener('click', function() {
+                openModal(locationModalTemplate.innerHTML, 'location');
+            });
+            
+            // Add click handler for the Add Activity button
+            addActivityBtn.addEventListener('click', function() {
+                openModal(activityModalTemplate.innerHTML, 'activity');
+            });
+            
+            // Add click handlers for edit buttons
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent;
+                    const isLocation = this.closest('.locations-card') !== null;
+                    
+                    if (isLocation) {
+                        openModal(locationModalTemplate.innerHTML, 'location', {
+                            name: name,
+                            isEdit: true
+                        });
+                    } else {
+                        openModal(activityModalTemplate.innerHTML, 'activity', {
+                            name: name,
+                            isEdit: true
+                        });
+                    }
+                });
+            });
+            
+            // Add click handlers for delete buttons
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent;
+                    const isLocation = this.closest('.locations-card') !== null;
+                    
+                    if (confirm(`Are you sure you want to delete "${name}"?`)) {
+                        // In a real application, this would send a request to delete the item
+                        // For demo purposes, just remove the row
+                        row.remove();
+                    }
+                });
+            });
+            
+            // Function to open a modal
+            function openModal(content, type, data = {}) {
+                modalContainer.innerHTML = `
+                    <div class="modal-content">
+                        ${content}
+                    </div>
+                `;
+                
+                // Update title if editing
+                if (data.isEdit) {
+                    const title = modalContainer.querySelector('h3');
+                    title.textContent = `Edit ${type === 'location' ? 'Location' : 'Activity'}`;
+                    
+                    // Set name value if provided
+                    if (data.name) {
+                        const nameInput = type === 'location' ? 
+                            modalContainer.querySelector('#location-name') :
+                            modalContainer.querySelector('#activity-name');
+                            
+                        if (nameInput) nameInput.value = data.name;
+                    }
+                }
+                
+                // Show the modal
+                modalContainer.classList.add('active');
+                
+                // Add event listeners for Cancel and Save buttons
+                const cancelBtn = modalContainer.querySelector('[data-action="cancel"]');
+                const saveBtn = modalContainer.querySelector('[data-action="save"]');
+                
+                if (cancelBtn) {
+                    cancelBtn.addEventListener('click', closeModal);
+                }
+                
+                if (saveBtn) {
+                    saveBtn.addEventListener('click', function() {
+                        // In a real application, this would save the data
+                        // For demo purposes, just close the modal
+                        alert(`${data.isEdit ? 'Updated' : 'Added'} ${type} successfully!`);
+                        closeModal();
+                    });
+                }
+                
+                // Allow clicking outside the modal to close it
+                modalContainer.addEventListener('click', function(e) {
+                    if (e.target === modalContainer) {
+                        closeModal();
+                    }
+                });
+                
+                // Setup icon selection for activities
+                if (type === 'activity') {
+                    const iconOptions = modalContainer.querySelectorAll('.icon-option');
+                    iconOptions.forEach(option => {
+                        option.addEventListener('click', function() {
+                            iconOptions.forEach(opt => opt.classList.remove('selected'));
+                            this.classList.add('selected');
+                        });
+                    });
+                }
+                
+                // Setup image upload for locations
+                if (type === 'location') {
+                    const uploadBtn = modalContainer.querySelector('.upload-controls .btn-secondary');
+                    if (uploadBtn) {
+                        uploadBtn.addEventListener('click', function() {
+                            // In a real application, this would open a file picker
+                            // For demo purposes, just show an alert
+                            alert('File upload dialog would open here.');
+                        });
+                    }
+                }
+            }
+            
+            // Function to close the modal
+            function closeModal() {
+                modalContainer.classList.remove('active');
+                // Remove content after animation completes
+                setTimeout(() => {
+                    modalContainer.innerHTML = '';
+                }, 300);
+            }
+        }
+
+        // Farm Assets functionality
+        function initFarmAssets() {
+            // References to elements
+            const addAssetBtn = document.querySelector('#farm-assets .btn-primary');
+            const assetModalTemplate = document.getElementById('asset-modal-template');
+            
+            // Create modal container if it doesn't exist
+            let modalContainer = document.querySelector('.modal-container');
+            if (!modalContainer) {
+                modalContainer = document.createElement('div');
+                modalContainer.className = 'modal-container';
+                document.body.appendChild(modalContainer);
+                
+                // Add style for modal container if not already added
+                if (!document.querySelector('style[data-for="modal-container"]')) {
+                    const style = document.createElement('style');
+                    style.setAttribute('data-for', 'modal-container');
+                    style.textContent = `
+                        .modal-container {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            z-index: 1000;
+                            opacity: 0;
+                            visibility: hidden;
+                            transition: opacity 0.3s ease, visibility 0.3s ease;
+                        }
+                        .modal-container.active {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                        .modal-content {
+                            width: 100%;
+                            max-width: 600px;
+                            margin: 0 20px;
+                            animation: modalFadeIn 0.3s ease;
+                        }
+                        @keyframes modalFadeIn {
+                            from { transform: translateY(-20px); opacity: 0; }
+                            to { transform: translateY(0); opacity: 1; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+            
+            // Add click handler for the Add Asset button
+            if (addAssetBtn) {
+                addAssetBtn.addEventListener('click', function() {
+                    openModal(assetModalTemplate.innerHTML, 'asset');
+                });
+            }
+            
+            // Add click handlers for edit buttons
+            document.querySelectorAll('#farm-assets .edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const id = row.querySelector('td:first-child').textContent;
+                    const name = row.querySelector('td:nth-child(2)').textContent;
+                    
+                    openModal(assetModalTemplate.innerHTML, 'asset', {
+                        id: id,
+                        name: name,
+                        isEdit: true
+                    });
+                });
+            });
+            
+            // Add click handlers for delete buttons
+            document.querySelectorAll('#farm-assets .delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const id = row.querySelector('td:first-child').textContent;
+                    const name = row.querySelector('td:nth-child(2)').textContent;
+                    
+                    if (confirm(`Are you sure you want to delete "${name}" (${id})?`)) {
+                        // In a real application, this would send a request to delete the item
+                        // For demo purposes, just remove the row
+                        row.remove();
+                    }
+                });
+            });
+            
+            // Function to open a modal
+            function openModal(content, type, data = {}) {
+                modalContainer.innerHTML = `
+                    <div class="modal-content">
+                        ${content}
+                    </div>
+                `;
+                
+                // Update title if editing
+                if (data.isEdit) {
+                    const title = modalContainer.querySelector('h3');
+                    title.textContent = `Edit Farm Asset`;
+                    
+                    // Set ID and name values if provided
+                    if (data.id) {
+                        const idInput = modalContainer.querySelector('#asset-id');
+                        if (idInput) {
+                            idInput.value = data.id;
+                            idInput.readOnly = true; // ID should not be changed once set
+                        }
+                    }
+                    
+                    if (data.name) {
+                        const nameInput = modalContainer.querySelector('#asset-name');
+                        if (nameInput) nameInput.value = data.name;
+                    }
+                }
+                
+                // Show the modal
+                modalContainer.classList.add('active');
+                
+                // Add event listeners for Cancel and Save buttons
+                const cancelBtn = modalContainer.querySelector('[data-action="cancel"]');
+                const saveBtn = modalContainer.querySelector('[data-action="save"]');
+                
+                if (cancelBtn) {
+                    cancelBtn.addEventListener('click', closeModal);
+                }
+                
+                if (saveBtn) {
+                    saveBtn.addEventListener('click', function() {
+                        // In a real application, this would save the data
+                        // For demo purposes, just close the modal
+                        alert(`${data.isEdit ? 'Updated' : 'Added'} asset successfully!`);
+                        closeModal();
+                    });
+                }
+                
+                // Allow clicking outside the modal to close it
+                modalContainer.addEventListener('click', function(e) {
+                    if (e.target === modalContainer) {
+                        closeModal();
+                    }
+                });
+                
+                // Setup image upload for assets
+                const uploadBtn = modalContainer.querySelector('.upload-controls .btn-secondary');
+                if (uploadBtn) {
+                    uploadBtn.addEventListener('click', function() {
+                        // In a real application, this would open a file picker
+                        // For demo purposes, just show an alert
+                        alert('File upload dialog would open here.');
+                    });
+                }
+            }
+            
+            // Function to close the modal
+            function closeModal() {
+                modalContainer.classList.remove('active');
+                // Remove content after animation completes
+                setTimeout(() => {
+                    modalContainer.innerHTML = '';
+                }, 300);
+            }
+        }
+
+        // Integrations functionality
+        function initIntegrations() {
+            // Add click handlers for integration options
+            const integrationOptions = document.querySelectorAll('.integration-option');
+            
+            integrationOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Only allow selecting if not already connected
+                    if (!document.querySelector('.integration-status.connected')) {
+                        integrationOptions.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html> 

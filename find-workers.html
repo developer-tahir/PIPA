@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Workers - PIPA Farm</title>
+    
+    <!-- Loading fix script - run before anything else -->
+    <script src="assets/js/loading-fix.js"></script>
+    
+    <!-- Immediate fix for loading screen -->
+    <script>
+        // Set a timeout to hide the loading screen
+        window.setTimeout(function() {
+            var loaders = document.getElementsByClassName('loading');
+            for (var i = 0; i < loaders.length; i++) {
+                loaders[i].style.opacity = '0';
+                loaders[i].style.display = 'none';
+            }
+        }, 800); // Give enough time for initial render
+    </script>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/find-workers.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    
+    <!-- Meta tags for better SEO and accessibility -->
+    <meta name="description" content="Find skilled farm workers for your Australian farm - PIPA Farm worker search portal">
+    <meta name="keywords" content="farm workers, australian agriculture, farm employment, agricultural labor">
+    <meta name="author" content="PIPA Farm Solutions">
+</head>
+<body>
+    <!-- Loading indicator for slow connections -->
+    <div class="loading" id="page-loader" role="status" aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="loading-text">Loading PIPA Farm...</p>
+        <button onclick="document.getElementById('page-loader').style.display='none';" class="btn btn-sm" style="margin-top: 20px; display: none;" id="manual-hide-loader">
+            Click here if loading persists
+        </button>
+        <script>
+            // Show the manual hide button after 3 seconds
+            setTimeout(function() {
+                document.getElementById('manual-hide-loader').style.display = 'block';
+            }, 3000);
+        </script>
+    </div>
+
+    <!-- Offline and connectivity indicators -->
+    <div class="offline-indicator">
+        <i class="fas fa-wifi"></i> You are currently offline
+    </div>
+    <div class="limited-connectivity">
+        <i class="fas fa-exclamation-triangle"></i> Limited connection
+    </div>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li class="active"><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="find-workers-container">
+                <header class="find-workers-header">
+                    <div class="header-content">
+                        <h2>Find Workers</h2>
+                        <p class="subtitle">Search for skilled farm workers in your area</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                            Post Job
+                        </button>
+                    </div>
+                </header>
+                
+                <div class="search-section">
+                    <form class="search-form">
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label for="keyword">Keyword or Skill</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-search" aria-hidden="true"></i>
+                                    <input type="text" id="keyword" placeholder="e.g., Tractor operation, harvesting">
+                                </div>
+                            </div>
+                            <div class="search-field">
+                                <label for="location">Location</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                    <input type="text" id="location" placeholder="City, state or postcode">
+                                </div>
+                            </div>
+                            <div class="search-field">
+                                <label for="distance">Distance</label>
+                                <select id="distance">
+                                    <option value="10">10 km</option>
+                                    <option value="25">25 km</option>
+                                    <option value="50" selected>50 km</option>
+                                    <option value="100">100 km</option>
+                                    <option value="any">Any distance</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label>Availability</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Full-time
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Part-time
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Seasonal
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Casual
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <label>Experience Level</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Entry Level
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Intermediate
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Experienced
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-group">
+                                <label>Certifications</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Heavy Machinery
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Chemical Handling
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> First Aid
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="filter-actions">
+                                <button type="button" class="btn btn-outline-secondary">Reset</button>
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="results-section">
+                    <div class="results-header">
+                        <h3>Available Workers <span class="result-count">(24)</span></h3>
+                        <div class="results-sorting">
+                            <label for="sort-by">Sort by:</label>
+                            <select id="sort-by">
+                                <option value="relevance">Relevance</option>
+                                <option value="distance">Distance</option>
+                                <option value="experience">Experience</option>
+                                <option value="availability">Availability</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="worker-cards">
+                        <!-- Worker Card 1 -->
+                        <div class="worker-card">
+                            <div class="worker-header">
+                                <div class="worker-avatar">
+                                    <img src="assets/images/worker1.jpg" alt="James Wilson" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='JW';">
+                                </div>
+                                <div class="worker-info">
+                                    <h4>James Wilson</h4>
+                                    <p class="worker-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Brisbane, QLD (12km)</p>
+                                </div>
+                                <div class="availability-badge available" aria-label="Available Now">Available Now</div>
+                            </div>
+                            <div class="worker-skills">
+                                <h5>Skills & Experience</h5>
+                                <ul class="skill-tags">
+                                    <li>Tractor Operation</li>
+                                    <li>Irrigation</li>
+                                    <li>Crop Harvesting</li>
+                                    <li>Livestock Management</li>
+                                    <li>Fencing</li>
+                                </ul>
+                                <p class="experience-info">5+ years experience in mixed farming</p>
+                            </div>
+                            <div class="certification-badges">
+                                <span class="certification" title="Heavy Machinery License" aria-label="Has Heavy Machinery License">
+                                    <i class="fas fa-truck" aria-hidden="true"></i>
+                                </span>
+                                <span class="certification" title="Chemical Handling" aria-label="Has Chemical Handling Certification">
+                                    <i class="fas fa-flask" aria-hidden="true"></i>
+                                </span>
+                                <span class="certification" title="First Aid" aria-label="Has First Aid Certification">
+                                    <i class="fas fa-medkit" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="worker-footer">
+                                <p class="worker-rate">$32-38/hour</p>
+                                <div class="worker-actions">
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="far fa-bookmark" aria-hidden="true"></i> <span class="btn-text">Save</span>
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-comment" aria-hidden="true"></i> <span class="btn-text">Contact</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Worker Card 2 -->
+                        <div class="worker-card">
+                            <div class="worker-header">
+                                <div class="worker-avatar">
+                                    <img src="assets/images/worker2.jpg" alt="Sarah Thompson" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='ST';">
+                                </div>
+                                <div class="worker-info">
+                                    <h4>Sarah Thompson</h4>
+                                    <p class="worker-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Gold Coast, QLD (35km)</p>
+                                </div>
+                                <div class="availability-badge part-time" aria-label="Part-time">Part-time</div>
+                            </div>
+                            <div class="worker-skills">
+                                <h5>Skills & Experience</h5>
+                                <ul class="skill-tags">
+                                    <li>Crop Planting</li>
+                                    <li>Organic Farming</li>
+                                    <li>Market Gardening</li>
+                                    <li>Soil Management</li>
+                                    <li>Farm Admin</li>
+                                </ul>
+                                <p class="experience-info">3 years in organic vegetable production</p>
+                            </div>
+                            <div class="certification-badges">
+                                <span class="certification" title="Chemical Handling" aria-label="Has Chemical Handling Certification">
+                                    <i class="fas fa-flask" aria-hidden="true"></i>
+                                </span>
+                                <span class="certification" title="First Aid" aria-label="Has First Aid Certification">
+                                    <i class="fas fa-medkit" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="worker-footer">
+                                <p class="worker-rate">$28-34/hour</p>
+                                <div class="worker-actions">
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="far fa-bookmark" aria-hidden="true"></i> <span class="btn-text">Save</span>
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-comment" aria-hidden="true"></i> <span class="btn-text">Contact</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Worker Card 3 -->
+                        <div class="worker-card">
+                            <div class="worker-header">
+                                <div class="worker-avatar">
+                                    <img src="assets/images/worker3.jpg" alt="Michael Johnson" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='MJ';">
+                                </div>
+                                <div class="worker-info">
+                                    <h4>Michael Johnson</h4>
+                                    <p class="worker-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Brisbane, QLD (8km)</p>
+                                </div>
+                                <div class="availability-badge full-time" aria-label="Full-time">Full-time</div>
+                            </div>
+                            <div class="worker-skills">
+                                <h5>Skills & Experience</h5>
+                                <ul class="skill-tags">
+                                    <li>Machinery Operation</li>
+                                    <li>Livestock Handling</li>
+                                    <li>Dairying</li>
+                                    <li>Fencing</li>
+                                    <li>Farm Maintenance</li>
+                                </ul>
+                                <p class="experience-info">7+ years in dairy and cattle operations</p>
+                            </div>
+                            <div class="certification-badges">
+                                <span class="certification" title="Heavy Machinery License" aria-label="Has Heavy Machinery License">
+                                    <i class="fas fa-truck" aria-hidden="true"></i>
+                                </span>
+                                <span class="certification" title="First Aid" aria-label="Has First Aid Certification">
+                                    <i class="fas fa-medkit" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="worker-footer">
+                                <p class="worker-rate">$35-42/hour</p>
+                                <div class="worker-actions">
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="far fa-bookmark" aria-hidden="true"></i> <span class="btn-text">Save</span>
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-comment" aria-hidden="true"></i> <span class="btn-text">Contact</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Worker Card 4 -->
+                        <div class="worker-card">
+                            <div class="worker-header">
+                                <div class="worker-avatar">
+                                    <img src="assets/images/worker4.jpg" alt="Emily Chen" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='EC';">
+                                </div>
+                                <div class="worker-info">
+                                    <h4>Emily Chen</h4>
+                                    <p class="worker-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Sunshine Coast, QLD (45km)</p>
+                                </div>
+                                <div class="availability-badge seasonal" aria-label="Seasonal">Seasonal</div>
+                            </div>
+                            <div class="worker-skills">
+                                <h5>Skills & Experience</h5>
+                                <ul class="skill-tags">
+                                    <li>Fruit Picking</li>
+                                    <li>Packing</li>
+                                    <li>Sorting</li>
+                                    <li>Quality Control</li>
+                                    <li>Basic Machinery</li>
+                                </ul>
+                                <p class="experience-info">4 seasons in fruit harvesting across Australia</p>
+                            </div>
+                            <div class="certification-badges">
+                                <span class="certification" title="First Aid" aria-label="Has First Aid Certification">
+                                    <i class="fas fa-medkit" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="worker-footer">
+                                <p class="worker-rate">$26-30/hour</p>
+                                <div class="worker-actions">
+                                    <button class="btn btn-outline-secondary">
+                                        <i class="far fa-bookmark" aria-hidden="true"></i> <span class="btn-text">Save</span>
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-comment" aria-hidden="true"></i> <span class="btn-text">Contact</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                            <span class="sr-only">Previous page</span>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">4</button>
+                        <button class="pagination-btn">5</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                            <span class="sr-only">Next page</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification container for dynamic notifications -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Add floating action button for quick access to common actions -->
+    <button class="fab" aria-label="Add new item" data-tooltip="Quick actions">
+        <i class="fas fa-plus" aria-hidden="true"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/find-workers.js"></script>
+    <script src="assets/js/avatars.js"></script>
+</body>
+</html> 

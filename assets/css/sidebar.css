@@ -1,0 +1,776 @@
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--sidebar-bg, #f2f6fc);
+    color: var(--text-color);
+    box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+    z-index: var(--z-sidebar);
+    transition: transform 0.3s ease, width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.app-logo {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.app-logo .logo-text,
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+}
+
+/* Logo compatibility */
+.logo {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background-color var(--transition-base);
+}
+
+.logo-img:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.nav-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    font-size: var(--font-size-sm);
+    gap: 0.75rem;
+    color: var(--text-secondary, #4e5d72);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: all 0.2s ease;
+    letter-spacing: var(--letter-spacing);
+    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+}
+
+.nav-menu a:hover, 
+.nav-menu li.active a {
+    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.nav-menu li.active a {
+    border-left: 4px solid var(--primary-color, #FF007F);
+    padding-left: calc(1.25rem - 4px);
+    font-weight: var(--font-weight-bold);
+    background-color: rgba(var(--primary-color-rgb), 0.05);
+}
+
+.nav-menu a i {
+    font-size: 1.15rem;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+.nav-menu .badge {
+    margin-left: auto;
+    background-color: var(--primary-color, #FF007F);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.nav-divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 1.25rem;
+}
+
+.nav-section-title {
+    padding: 0.75rem 1.5rem 0.5rem;
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.user-profile {
+    position: relative;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    background-color: #f8f9fa;
+}
+
+.user-profile:hover {
+    background-color: #f1f3f5;
+}
+
+.profile-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    flex-shrink: 0;
+    border: 2px solid var(--gray-200);
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-color, #333);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-role {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary, #666);
+}
+
+#user-dropdown-icon {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary, #666);
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* User Dropdown */
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-top: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    padding: 10px 0;
+}
+
+.user-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--text-color, #444);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.user-dropdown-item:hover {
+    background-color: var(--bg-light, #f5f5f5);
+    color: var(--primary-color);
+}
+
+.user-dropdown-item i {
+    margin-right: 12px;
+    color: var(--primary-color, #FF007F);
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.user-dropdown-item.logout-item {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.user-dropdown-item.logout-item i {
+    color: #e74c3c;
+}
+
+.user-dropdown-item.logout-item:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.user-dropdown-item.active,
+.user-dropdown-item.active i {
+    color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), 0.05);
+    font-weight: bold;
+}
+
+.user-dropdown-divider {
+    height: 1px;
+    background-color: var(--border-color, #eaeaea);
+    margin: 5px 12px;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-footer .user-info {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.sidebar-footer .user-profile {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar-footer .user-profile:hover {
+    background: none;
+}
+
+.sidebar-footer .user-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sidebar-footer .user-name,
+.sidebar-footer .user-role {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-footer-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.sidebar-footer-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-footer-menu a {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary, #666);
+    font-size: var(--font-size-xs);
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-footer-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--primary-color);
+}
+
+.sidebar-footer-menu i {
+    margin-right: 5px;
+}
+
+/* Ensure both user profile sections are visible */
+.nav-menu + .user-profile,
+.sidebar-footer {
+    display: flex;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    bottom: 60px;
+    left: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    animation: fadeIn 0.2s ease;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: var(--text-dark, #2b3b52);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: background-color 0.2s ease;
+    gap: 0.75rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--bg-light, #f5f7fa);
+}
+
+.dropdown-menu i {
+    font-size: 1rem;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-color, #e4e9f0);
+    margin: 0.25rem 0;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 260px;
+    padding: 1.5rem;
+    max-width: calc(100vw - 260px);
+    min-height: 100vh;
+    transition: margin-left 0.3s ease, max-width 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .main-content {
+        margin-left: 240px;
+        max-width: calc(100vw - 240px);
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+    
+    .app-logo {
+        padding: 1.25rem;
+    }
+    
+    .nav-menu a {
+        padding: 1rem 1.5rem;
+        font-size: var(--font-size-md);
+    }
+    
+    .nav-menu a i {
+        font-size: 1.25rem;
+    }
+    
+    .user-profile {
+        padding: 1rem 1.25rem;
+    }
+    
+    .menu-toggle {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .weather-widget {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color, #FF007F);
+    color: white;
+    padding: 8px 16px;
+    z-index: 1001;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus Styles for Keyboard Users */
+body.keyboard-user :focus {
+    outline: 3px solid var(--primary-color, #FF007F);
+    outline-offset: 2px;
+}
+
+/* Weather Widget */
+.weather-widget {
+    padding: 15px 20px;
+    background-color: var(--water-light, #f2f7fa);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.weather-widget i {
+    color: var(--aussie-gold, #ffbf00);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.weather-widget .temperature {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+}
+
+.weather-widget .condition {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.weather-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+}
+
+/* Compact sidebar for larger screens to give more space for content */
+@media (min-width: 1400px) {
+    .sidebar.compact {
+        width: var(--sidebar-collapsed-width);
+    }
+    
+    .sidebar.compact .logo h1,
+    .sidebar.compact .app-logo .logo-text,
+    .sidebar.compact .nav-menu a span,
+    .sidebar.compact .nav-section-title,
+    .sidebar.compact .profile-info,
+    .sidebar.compact .weather-widget .condition,
+    .sidebar.compact .weather-widget .weather-details {
+        display: none;
+    }
+    
+    .sidebar.compact .logo,
+    .sidebar.compact .app-logo {
+        justify-content: center;
+        padding: 1rem 0;
+    }
+    
+    .sidebar.compact .nav-menu a {
+        justify-content: center;
+        padding: 1rem 0;
+    }
+    
+    .sidebar.compact .nav-menu a i {
+        min-width: unset;
+        margin: 0;
+    }
+    
+    .sidebar.compact .nav-menu li.active a {
+        border-left: none;
+        border-right: 4px solid var(--primary-color);
+        padding-right: 4px;
+    }
+    
+    .sidebar.compact .user-profile {
+        justify-content: center;
+        padding: 1rem 0;
+    }
+    
+    .sidebar.compact .profile-avatar {
+        margin-right: 0;
+    }
+    
+    .sidebar.compact .weather-widget {
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .sidebar.compact + .main-content {
+        margin-left: var(--sidebar-collapsed-width);
+    }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar {
+        width: 220px;
+    }
+    
+    .nav-menu a {
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .main-content {
+        margin-left: 220px;
+    }
+}
+
+/* Australian farm-specific adaptations for outdoor visibility */
+@media (prefers-color-scheme: light) {
+    .sidebar {
+        background-color: var(--sidebar-bg, #f2f6fc);
+    }
+
+    .nav-menu a i {
+        color: var(--aussie-blue, #0066B2);
+    }
+    
+    .nav-menu li.active a {
+        border-left-color: var(--aussie-green, #018E42);
+    }
+    
+    .weather-widget {
+        background-color: rgba(var(--aussie-blue), 0.05);
+    }
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: more) {
+    .sidebar {
+        background-color: white;
+        border-right: 2px solid black;
+        box-shadow: none;
+    }
+    
+    .nav-menu a {
+        color: black;
+    }
+    
+    .nav-menu li.active a {
+        background-color: #f0f0f0;
+        border-left-color: black;
+    }
+}
+
+/* Touch optimizations for farm environments */
+@media (pointer: coarse) {
+    .nav-menu a {
+        padding: 0.875rem 1.25rem;
+    }
+    
+    .nav-menu a i {
+        font-size: 1.25rem;
+    }
+    
+    .user-profile {
+        padding: 1rem 1.25rem;
+    }
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: var(--z-fixed);
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.menu-toggle:hover {
+    background: var(--primary-color-dark);
+    transform: scale(1.05);
+}
+
+.menu-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Print Styles */
+@media print {
+    .sidebar,
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+/* Add special styling for new menu items */
+.nav-menu a[href="chat.html"] i,
+.nav-menu a[href="training.html"] i,
+.nav-menu a[href="find-workers.html"] i {
+    color: var(--primary-color, #FF007F);
+}
+
+/* Hide weather widget as requested */
+.weather-widget {
+    display: none !important;
+}
+
+/* Add consistent avatar styling for all profile areas */
+.avatar, .profile-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    flex-shrink: 0;
+    border: 2px solid var(--gray-200);
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.avatar img, .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Consistent text styling for user info */
+.user-info, .profile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.name, .user-name {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-color, #333);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.role, .user-role {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary, #666);
+}
+
+/* Animation for dropdown */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-dropdown.show {
+    animation: slideDown 0.25s ease forwards;
+}

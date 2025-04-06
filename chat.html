@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li class="active"><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="chat-container">
+                <!-- Chat Sidebar -->
+                <div class="chat-sidebar">
+                    <div class="chat-sidebar-header">
+                        <h2>Conversations</h2>
+                        <button class="btn btn-icon" aria-label="New conversation">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="chat-search">
+                        <div class="search-input">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search messages">
+                        </div>
+                    </div>
+                    <div class="chat-list">
+                        <div class="chat-filter">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="unread">Unread</button>
+                            <button class="filter-btn" data-filter="important">Important</button>
+                        </div>
+                        <div class="conversations">
+                            <div class="conversation-item active">
+                                <div class="conversation-avatar">
+                                    <img src="assets/images/avatar.png" alt="Sam Pritchard" onerror="this.style.display='none'; this.parentElement.innerHTML='SP';">
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-header">
+                                        <h3>Sam Pritchard</h3>
+                                        <span class="conversation-time">10:30 AM</span>
+                                    </div>
+                                    <p class="conversation-preview">Can you check the irrigation system in the north paddock?</p>
+                                </div>
+                            </div>
+                            <div class="conversation-item unread">
+                                <div class="conversation-avatar">
+                                    <img src="assets/images/avatar.png" alt="Equipment Team" onerror="this.style.display='none'; this.parentElement.innerHTML='ET';">
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-header">
+                                        <h3>Equipment Team</h3>
+                                        <span class="conversation-time">Yesterday</span>
+                                    </div>
+                                    <p class="conversation-preview">New tractor delivery scheduled for next Tuesday at 9am</p>
+                                    <span class="unread-badge">2</span>
+                                </div>
+                            </div>
+                            <div class="conversation-item important">
+                                <div class="conversation-avatar">
+                                    <img src="assets/images/avatar.png" alt="Safety Group" onerror="this.style.display='none'; this.parentElement.innerHTML='SG';">
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-header">
+                                        <h3>Safety Group</h3>
+                                        <span class="conversation-time">2 days ago</span>
+                                    </div>
+                                    <p class="conversation-preview">Updated safety protocols have been posted. Please review...</p>
+                                    <span class="important-badge"><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                            <div class="conversation-item">
+                                <div class="conversation-avatar">
+                                    <img src="assets/images/avatar.png" alt="Jane Doe" onerror="this.style.display='none'; this.parentElement.innerHTML='JD';">
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-header">
+                                        <h3>Jane Doe</h3>
+                                        <span class="conversation-time">1 week ago</span>
+                                    </div>
+                                    <p class="conversation-preview">Thanks for your help with the inventory count!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chat Main -->
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div class="chat-user-info">
+                            <div class="avatar">
+                                <img src="assets/images/avatar.png" alt="Sam Pritchard" onerror="this.style.display='none'; this.parentElement.innerHTML='SP';">
+                            </div>
+                            <div>
+                                <h3>Sam Pritchard</h3>
+                                <span class="user-status online">
+                                    <i class="fas fa-circle"></i> Online
+                                </span>
+                            </div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="btn btn-icon" aria-label="Start video call" data-tooltip="Video call">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button class="btn btn-icon" aria-label="Start voice call" data-tooltip="Voice call">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                            <button class="btn btn-icon" aria-label="More actions" data-tooltip="More options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message-date">Today</div>
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="assets/images/avatar.png" alt="Sam Pritchard" onerror="this.style.display='none'; this.parentElement.innerHTML='SP';">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <span class="message-sender">Sam Pritchard</span>
+                                    <span class="message-time">10:30 AM</span>
+                                </div>
+                                <div class="message-bubble">
+                                    <p>Good morning! Hope you're doing well today.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="assets/images/avatar.png" alt="Sam Pritchard" onerror="this.style.display='none'; this.parentElement.innerHTML='SP';">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Can you check the irrigation system in the north paddock? I noticed it wasn't running properly yesterday.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Good morning Sam! I'm doing well, thanks. How about you?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Sure, I'll head over there this morning and take a look at the irrigation system. I'll let you know what I find.</p>
+                                </div>
+                                <div class="message-time">10:35 AM</div>
+                            </div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="assets/images/avatar.png" alt="Sam Pritchard" onerror="this.style.display='none'; this.parentElement.innerHTML='SP';">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Thanks! I appreciate it. I'm also sending you a task with more details.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="assets/images/avatar.png" alt="Sam Pritchard" onerror="this.style.display='none'; this.parentElement.innerHTML='SP';">
+                            </div>
+                            <div class="message-content">
+                                <div class="message-bubble task-message">
+                                    <div class="task-card">
+                                        <div class="task-header">
+                                            <i class="fas fa-tasks"></i>
+                                            <span>Irrigation System Inspection</span>
+                                        </div>
+                                        <div class="task-details">
+                                            <p>Check north paddock irrigation system for blockages and pressure issues.</p>
+                                            <div class="task-meta">
+                                                <span class="task-due"><i class="fas fa-calendar"></i> Today</span>
+                                                <span class="task-priority medium"><i class="fas fa-flag"></i> Medium Priority</span>
+                                            </div>
+                                            <button class="btn btn-small btn-primary">View Task</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="message-time">10:38 AM</div>
+                            </div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                <div class="message-bubble">
+                                    <p>Got it. I'll check it out right away and update the task when it's done.</p>
+                                </div>
+                                <div class="message-time">10:40 AM</div>
+                            </div>
+                        </div>
+                        <div class="message-typing">
+                            <div class="typing-indicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>Sam is typing...</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <button class="btn btn-icon" aria-label="Attach file">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Type a message...">
+                            <div class="input-actions">
+                                <button class="btn btn-icon" aria-label="Add emoji">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+                                <button class="btn btn-icon" aria-label="Send task">
+                                    <i class="fas fa-tasks"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="btn btn-icon send-btn" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification container -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/avatars.js"></script>
+</body>
+</html> 

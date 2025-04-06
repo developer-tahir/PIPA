@@ -1,0 +1,225 @@
+/* Timesheet Component */
+.timesheet-container {
+    padding: var(--spacing-lg);
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.timesheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.header-content h2 {
+    font-size: 1.75rem;
+    margin: 0;
+    padding: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    position: relative;
+    z-index: 3;
+}
+
+.timesheet-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    position: relative;
+    z-index: 3;
+}
+
+/* Active Shift Card */
+.active-shift {
+    background-color: #E8F5E9;
+    border-left: 4px solid var(--success-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.active-shift-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.active-shift-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.active-shift-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.active-shift-time {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.active-shift-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background-color: var(--success-color);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 16px;
+    font-size: 0.9rem;
+}
+
+/* Timesheet Table */
+.timesheet-table-container {
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+}
+
+.timesheet-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.timesheet-table th,
+.timesheet-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.timesheet-table th {
+    background-color: var(--background-color);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.timesheet-table tr:hover {
+    background-color: var(--background-color);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 16px;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+.status-pending {
+    background-color: #FFF3E0;
+    color: #E65100;
+}
+
+.status-approved {
+    background-color: #E8F5E9;
+    color: var(--success-color);
+}
+
+.status-rejected {
+    background-color: #FFEBEE;
+    color: var(--danger-color);
+}
+
+/* Activity Tags */
+.activity-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 16px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Location Badge */
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .timesheet-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    
+    .header-actions {
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    .timesheet-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .timesheet-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .active-shift {
+        border: 2px solid var(--success-color);
+        background-color: white;
+    }
+
+    .status-badge {
+        border: 2px solid currentColor;
+        background-color: white;
+    }
+
+    .activity-tag {
+        border: 1px solid var(--text-color);
+        background-color: white;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .timesheet-actions,
+    .active-shift-status {
+        display: none;
+    }
+
+    .timesheet-table th {
+        background-color: white;
+        border-bottom: 2px solid black;
+    }
+} 

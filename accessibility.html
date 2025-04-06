@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement - PIPA Farm</title>
+    
+    <!-- Loading fix script - run before anything else -->
+    <script src="assets/js/loading-fix.js"></script>
+    
+    <!-- Immediate fix for loading screen -->
+    <script>
+        // Set a timeout to hide the loading screen
+        window.setTimeout(function() {
+            var loaders = document.getElementsByClassName('loading');
+            for (var i = 0; i < loaders.length; i++) {
+                loaders[i].style.opacity = '0';
+                loaders[i].style.display = 'none';
+            }
+            console.log("Loading screen hidden by immediate fix");
+        }, 800); // Give enough time for initial render
+    </script>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+    <link rel="stylesheet" href="assets/css/notifications.css">
+    
+    <!-- Meta tags for better SEO and accessibility -->
+    <meta name="description" content="Accessibility features of PIPA Farm management system - designed for Australian farms with dyslexia-friendly features.">
+    <meta name="keywords" content="farm management, accessibility, dyslexia-friendly, australian farms">
+    <meta name="author" content="PIPA Farm Solutions">
+</head>
+<body>
+    <!-- Loading indicator for slow connections -->
+    <div class="loading" id="page-loader" role="status" aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p class="loading-text">Loading PIPA Farm...</p>
+        <button onclick="document.getElementById('page-loader').style.display='none';" class="btn btn-sm" style="margin-top: 20px; display: none;" id="manual-hide-loader">
+            Click here if loading persists
+        </button>
+        <script>
+            // Show the manual hide button after 3 seconds
+            setTimeout(function() {
+                document.getElementById('manual-hide-loader').style.display = 'block';
+            }, 3000);
+        </script>
+    </div>
+
+    <!-- Offline and connectivity indicators -->
+    <div class="offline-indicator">
+        <i class="fas fa-wifi"></i> You are currently offline
+    </div>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Mobile menu toggle -->
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="page-container">
+                <header class="page-header">
+                    <h2>Accessibility Statement</h2>
+                    <p class="last-updated">Last updated: 10 May 2023</p>
+                </header>
+
+                <section class="content-section">
+                    <h3>Our Commitment to Accessibility</h3>
+                    <p>PIPA Farm is committed to ensuring digital accessibility for people of all abilities, including those with dyslexia and other reading difficulties. We are continually improving the user experience for everyone, and applying the relevant accessibility standards.</p>
+                </section>
+
+                <section class="content-section">
+                    <h3>Dyslexia-Friendly Features</h3>
+                    <p>We have implemented numerous features to make our application more accessible to users with dyslexia, which affects approximately 10% of Australians. Our dyslexia-friendly features include:</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-font"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Dyslexia-Friendly Font</h4>
+                                <p>We use the Lexend font family, which was specifically designed to improve reading proficiency for those with dyslexia.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Low-Contrast Color Scheme</h4>
+                                <p>Our color scheme features subtle backgrounds and carefully selected text colors to reduce visual stress.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-align-left"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Enhanced Typography</h4>
+                                <p>We've implemented increased line spacing, letter spacing, and word spacing to improve text readability.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-adjust"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Dyslexia Mode</h4>
+                                <p>A dedicated dyslexia mode with further enhancements can be enabled in the settings menu.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-text-height"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Text Size Controls</h4>
+                                <p>Users can increase or decrease text size throughout the application to find their optimal reading size.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-grip-lines"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Line Length Optimization</h4>
+                                <p>Text containers are limited to 70 characters per line to prevent tracking issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h3>Offline Support for Rural Areas</h3>
+                    <p>We understand that many Australian farms have limited internet connectivity. Our application includes:</p>
+                    <ul class="feature-list">
+                        <li>Full offline functionality for core features</li>
+                        <li>Background syncing when connection is restored</li>
+                        <li>Clear indicators of connection status</li>
+                        <li>Data-saving mode for low-bandwidth areas</li>
+                    </ul>
+                </section>
+
+                <section class="content-section">
+                    <h3>Responsive Design for All Devices</h3>
+                    <p>PIPA Farm is designed to work on all devices commonly used in farm environments:</p>
+                    <ul class="feature-list">
+                        <li>Desktop computers in the farm office</li>
+                        <li>Tablets for field use</li>
+                        <li>Mobile phones for on-the-go management</li>
+                        <li>Optimized touch targets for use with gloves</li>
+                    </ul>
+                </section>
+
+                <section class="content-section">
+                    <h3>Conformance Status</h3>
+                    <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.</p>
+                    <p>PIPA Farm is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard.</p>
+                </section>
+
+                <section class="content-section">
+                    <h3>Accessibility Options in the Application</h3>
+                    <p>You can access the following accessibility options through the settings page:</p>
+                    <div class="settings-group">
+                        <div class="settings-option">
+                            <button class="btn btn-sm" onclick="decreaseTextSizeDemo()" aria-label="Decrease text size">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span>Text Size</span>
+                            <button class="btn btn-sm" onclick="increaseTextSizeDemo()" aria-label="Increase text size">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <button class="btn btn-sm" onclick="resetTextSizeDemo()" aria-label="Reset text size">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="settings-option">
+                            <label class="switch">
+                                <input type="checkbox" id="highContrastDemo" aria-label="Toggle high contrast mode">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>High Contrast</span>
+                        </div>
+                        
+                        <div class="settings-option">
+                            <label class="switch">
+                                <input type="checkbox" id="reducedMotionDemo" aria-label="Toggle reduced motion">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>Reduced Motion</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h3>Keyboard Navigation</h3>
+                    <p>PIPA Farm supports full keyboard navigation. Common keyboard shortcuts include:</p>
+                    <div class="keyboard-shortcuts">
+                        <div class="shortcut">
+                            <kbd>Tab</kbd>
+                            <span>Move to the next interactive element</span>
+                        </div>
+                        <div class="shortcut">
+                            <kbd>Shift</kbd> + <kbd>Tab</kbd>
+                            <span>Move to the previous interactive element</span>
+                        </div>
+                        <div class="shortcut">
+                            <kbd>Enter</kbd> or <kbd>Space</kbd>
+                            <span>Activate the current element</span>
+                        </div>
+                        <div class="shortcut">
+                            <kbd>Esc</kbd>
+                            <span>Close popups or menus</span>
+                        </div>
+                        <div class="shortcut">
+                            <kbd>Alt</kbd> + <kbd>1</kbd>
+                            <span>Go to Dashboard</span>
+                        </div>
+                        <div class="shortcut">
+                            <kbd>/</kbd>
+                            <span>Focus search box</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h3>Feedback and Contact Information</h3>
+                    <p>We welcome your feedback on the accessibility of PIPA Farm. Please let us know if you encounter accessibility barriers:</p>
+                    <ul class="contact-info">
+                        <li><strong>Phone:</strong> 1800 PIPA FARM (1800 747 232)</li>
+                        <li><strong>Email:</strong> <a href="mailto:accessibility@pipafarm.com.au">accessibility@pipafarm.com.au</a></li>
+                        <li><strong>Postal Address:</strong> PIPA Farm Solutions, 123 Agriculture Drive, Rural City NSW 2000</li>
+                    </ul>
+                    <p>We try to respond to feedback within 2 business days.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Avatar fallback script -->
+    <script src="assets/js/avatar-fallback.js"></script>
+    
+    <!-- Demo functions for accessibility page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const highContrastToggle = document.getElementById('highContrastDemo');
+            const reducedMotionToggle = document.getElementById('reducedMotionDemo');
+            
+            // Set up demos that only affect this page
+            if (highContrastToggle) {
+                highContrastToggle.addEventListener('change', function() {
+                    document.body.classList.toggle('high-contrast', this.checked);
+                });
+            }
+            
+            if (reducedMotionToggle) {
+                reducedMotionToggle.addEventListener('change', function() {
+                    document.body.classList.toggle('reduced-motion', this.checked);
+                });
+            }
+        });
+        
+        function increaseTextSizeDemo() {
+            const demo = document.querySelector('.page-container');
+            const currentSize = parseFloat(getComputedStyle(demo).fontSize);
+            demo.style.fontSize = (currentSize + 1) + 'px';
+        }
+        
+        function decreaseTextSizeDemo() {
+            const demo = document.querySelector('.page-container');
+            const currentSize = parseFloat(getComputedStyle(demo).fontSize);
+            if (currentSize > 12) {
+                demo.style.fontSize = (currentSize - 1) + 'px';
+            }
+        }
+        
+        function resetTextSizeDemo() {
+            document.querySelector('.page-container').style.fontSize = '';
+        }
+    </script>
+    
+    <!-- Accessibility page specific styles -->
+    <style>
+        .page-header {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .last-updated {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .content-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .feature-card {
+            display: flex;
+            gap: var(--spacing-md);
+            background-color: var(--bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+        
+        .feature-content h4 {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .feature-content p {
+            margin-bottom: 0;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success-color);
+            margin-right: var(--spacing-sm);
+            font-weight: bold;
+        }
+        
+        .settings-group {
+            background-color: var(--bg-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .settings-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:focus + .slider {
+            box-shadow: 0 0 1px var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .slider.round {
+            border-radius: 34px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        
+        .text-size-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .keyboard-shortcuts {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .shortcut {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-sm);
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        kbd {
+            background-color: var(--gray-200);
+            border: 1px solid var(--gray-400);
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+            display: inline-block;
+            font-family: monospace;
+            font-size: 0.85em;
+            line-height: 1;
+            padding: 5px 8px;
+            margin: 0 5px;
+            white-space: nowrap;
+        }
+        
+        .shortcut span {
+            margin-left: var(--spacing-md);
+        }
+        
+        .contact-info {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .contact-info li {
+            padding: var(--spacing-sm) 0;
+        }
+        
+        /* High contrast mode demo */
+        .high-contrast {
+            --text-color: #000;
+            --bg-color: #fff;
+            --bg-light: #eee;
+            --border-color: #000;
+        }
+        
+        .high-contrast .feature-card,
+        .high-contrast .settings-group,
+        .high-contrast .shortcut {
+            border: 2px solid #000;
+            box-shadow: none;
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .keyboard-shortcuts {
+                gap: var(--spacing-md);
+            }
+            
+            .shortcut {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .shortcut span {
+                margin-left: 0;
+            }
+        }
+    </style>
+</body>
+</html> 

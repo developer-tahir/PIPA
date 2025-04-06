@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks - PIPA Farm</title>
+    
+    <!-- Dyslexia-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tasks.css">
+    <link rel="stylesheet" href="assets/css/enhanced-buttons.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h1>PIPA Farm</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                    <li class="active"><a href="tasks.html"><i class="fas fa-tasks"></i>Tasks</a></li>
+                    <li><a href="timesheet.html"><i class="fas fa-clock"></i>Timesheets</a></li>
+                    <li><a href="safety.html"><i class="fas fa-hard-hat"></i>Safety Reports</a></li>
+                    <li><a href="calendar.html"><i class="fas fa-calendar"></i>Calendar</a></li>
+                    <li><a href="employees.html"><i class="fas fa-users"></i>Employees</a></li>
+                    <li><a href="find-workers.html"><i class="fas fa-search"></i>Find Workers</a></li>
+                    <li><a href="chat.html"><i class="fas fa-comments"></i>Chat</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i>Training</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i>Settings</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-profile">
+                        <img src="assets/images/avatar1.jpg" alt="Tahir M" onerror="this.onerror=null; this.src=''; this.insertAdjacentHTML('afterend', '<div class=\'avatar-fallback\'>TM</div>'); this.style.display='none';">
+                        <div class="user-details">
+                            <span class="user-name">Tahir M</span>
+                            <span class="user-role">Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sidebar-footer-menu">
+                    <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="tasks-container">
+                <!-- Header with Actions -->
+                <header class="tasks-header">
+                    <div class="header-content">
+                        <h2>Tasks</h2>
+                        <div class="task-filters">
+                            <button class="btn btn-secondary active">
+                                <i class="fas fa-list" aria-hidden="true"></i>
+                                All Tasks
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                                My Tasks
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-calendar-week" aria-hidden="true"></i>
+                                This Week
+                            </button>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                            New Task
+                        </button>
+                        <button class="btn btn-info">
+                            <i class="fas fa-filter" aria-hidden="true"></i>
+                            Filter
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Task Board -->
+                <section class="task-board" aria-label="Task board with columns for different task statuses">
+                    <div class="board-column">
+                        <div class="column-header">
+                            <h3>To Do</h3>
+                            <span class="task-count">3</span>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-card high-priority">
+                                <div class="task-header">
+                                    <span class="priority-badge">High Priority</span>
+                                    <button class="btn btn-icon" aria-label="Task options">
+                                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <h4>Clear rocks from Long Paddock</h4>
+                                <p>Remove rocks before seeding can begin</p>
+                                <div class="task-meta">
+                                    <span class="due-date">
+                                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                                        Due Today
+                                    </span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        Long Paddock
+                                    </span>
+                                </div>
+                                <div class="task-footer">
+                                    <div class="assigned-to">
+                                        <img src="assets/images/avatar1.jpg" alt="Sam Pritchard" class="avatar" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='SP';">
+                                        <span>Sam Pritchard</span>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-icon btn-secondary" aria-label="Edit task">
+                                            <i class="fas fa-edit" aria-hidden="true"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-success" aria-label="Start task">
+                                            <i class="fas fa-play" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task-card medium-priority">
+                                <div class="task-header">
+                                    <span class="priority-badge">Medium Priority</span>
+                                    <button class="btn btn-icon" aria-label="Task options">
+                                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <h4>Repair fence in North Paddock</h4>
+                                <p>Fix damaged sections of fencing</p>
+                                <div class="task-meta">
+                                    <span class="due-date">
+                                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                                        Due Tomorrow
+                                    </span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        North Paddock
+                                    </span>
+                                </div>
+                                <div class="task-footer">
+                                    <div class="assigned-to">
+                                        <img src="assets/images/avatar2.jpg" alt="John Smith" class="avatar" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='JS';">
+                                        <span>John Smith</span>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-icon btn-secondary" aria-label="Edit task">
+                                            <i class="fas fa-edit" aria-hidden="true"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-success" aria-label="Start task">
+                                            <i class="fas fa-play" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="board-column">
+                        <div class="column-header">
+                            <h3>In Progress</h3>
+                            <span class="task-count">2</span>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-card medium-priority">
+                                <div class="task-header">
+                                    <span class="priority-badge">Medium Priority</span>
+                                    <button class="btn btn-icon" aria-label="Task options">
+                                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <h4>Check irrigation system</h4>
+                                <p>Inspect and test all sprinklers</p>
+                                <div class="task-meta">
+                                    <span class="due-date">
+                                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                                        Due in 2 days
+                                    </span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        All Fields
+                                    </span>
+                                </div>
+                                <div class="task-footer">
+                                    <div class="assigned-to">
+                                        <img src="assets/images/avatar3.jpg" alt="Jane Doe" class="avatar" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='JD';">
+                                        <span>Jane Doe</span>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-icon btn-secondary" aria-label="Edit task">
+                                            <i class="fas fa-edit" aria-hidden="true"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-success" aria-label="Complete task">
+                                            <i class="fas fa-check" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="board-column">
+                        <div class="column-header">
+                            <h3>Completed</h3>
+                            <span class="task-count">1</span>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-card completed">
+                                <div class="task-header">
+                                    <span class="priority-badge">Completed</span>
+                                    <button class="btn btn-icon" aria-label="Task options">
+                                        <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <h4>Service tractor</h4>
+                                <p>Regular maintenance check completed</p>
+                                <div class="task-meta">
+                                    <span class="completion-date">
+                                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                        Completed Today
+                                    </span>
+                                    <span class="location">
+                                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                        Workshop
+                                    </span>
+                                </div>
+                                <div class="task-footer">
+                                    <div class="assigned-to">
+                                        <img src="assets/images/avatar4.jpg" alt="Mike Johnson" class="avatar" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='MJ';">
+                                        <span>Mike Johnson</span>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-icon btn-secondary" aria-label="View task details">
+                                            <i class="fas fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" aria-label="Quick add task">
+        <i class="fas fa-plus" aria-hidden="true"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common-links.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tasks.js"></script>
+    <script src="assets/js/avatars.js"></script>
+</body>
+</html> 
